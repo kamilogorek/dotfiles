@@ -36,3 +36,4 @@
 	showUntrackedFiles = all
 [credential]
 	helper = osxkeychain
+

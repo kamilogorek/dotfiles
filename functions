@@ -23,6 +23,10 @@ function git-clean-pristine {
 }
 
 function get-json {
-    command="import json; import sys; from pprint import pprint; o = json.load(sys.stdin); pprint(o$3)" 
+    command="import json; import sys; from pprint import pprint; o = json.load(sys.stdin); pprint(o$3)"
     curl -s ${1} | python -c $command | grep ${2}
+}
+
+function grep-defaults {
+    grep -rniF ${1} ${2-src/}
 }

@@ -2,4 +2,5 @@
 --ignore-dir=bower_components
 --ignore-dir=dist
 --ignore-dir=tmp
+--ignore-dir=coverage
 --ignore-file=match:.map

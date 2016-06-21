@@ -12,7 +12,7 @@ xcode-select --install > /dev/null 2>&1
 read
 
 echo "Symlinking dotfiles"
-for file in ackrc aliases bash_profile editorconfig functions gitattributes gitconfig gitignore profile ssh tmux.conf vim vimrc 
+for file in ackrc alacritty.yml aliases bash_profile editorconfig functions gitattributes gitconfig gitignore profile ssh tmux tmux.conf vim vimrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file
@@ -25,20 +25,19 @@ brew update
 brew upgrade --all
 
 echo "Installing homebrew packages"
-for package in ack bash coreutils git httpie hub node tmux vim
+for package in ack bash coreutils git httpie hub node rbenv tmux vim z
 do
     brew install $package
 done
 brew install vim --override-system-vi
 
+brew tap caskroom/cask
+
+echo "Installing cask packages"
+for package in google-chrome slack spotify spectacle 1password flux
+do
+    brew install $package
+done
+
 brew cleanup
 
-# Applications
-#
-# Chrome Canary
-# Skype
-# Slack
-# Spotify
-# Spectacle
-# 1Password
-# f.lux
