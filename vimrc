@@ -1,11 +1,16 @@
 " Break backwards vi compatibility
 set nocompatible
 
+" Enable syntax highlighting
+syntax enable
+set t_Co=256
+colorscheme sierra
+
 " Sets displaying line numbers "
 set nu
 
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=5
 
 "Always show current position
 set ruler
@@ -43,19 +48,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
-" Highlight current row and column
-" set cursorline
-" set cursorcolumn
-
-" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-
-" Enable syntax highlighting
-syntax enable
-
-colorscheme desert
-set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -96,52 +88,18 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map j gj
 map k gk
 
-" " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-" map <space> /
-" map <c-space> ?
-"
-" " Disable highlight when <leader><cr> is pressed
-" map <silent> <leader><cr> :noh<cr>
-"
-" " Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
-"
-" " Close the current buffer
-" map <leader>bd :Bclose<cr>
-"
-" " Close all the buffers
-" map <leader>ba :1,1000 bd!<cr>
-"
-" " Useful mappings for managing tabs
-" map <leader>tn :tabnew<cr>
-" map <leader>to :tabonly<cr>
-" map <leader>tc :tabclose<cr>
-" map <leader>tm :tabmove
-"
-" " Opens a new tab with the current buffer's path
-" " Super useful when editing files in the same directory
-" map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-"
-" " Switch CWD to the directory of the open buffer
-" map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
 " Always show the status line
 set laststatus=2
 
 " " Toggle paste mode on and off
-" map <leader>pp :setlocal paste!<cr>
+map <leader>pp :setlocal paste!<cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
 
-
 " Vundle Setup
 
-set nocompatible " be iMproved, required
 filetype off " required
 
 " set the runtime path to include Vundle and initialize
@@ -151,20 +109,31 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'flazz/vim-colorschemes'
+Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'easymotion/vim-easymotion' moze kiedys
 Plugin 'git://github.com/tpope/vim-abolish.git'
+Plugin 'tpope/vim-obsession'
+Plugin 'sbdchd/neoformat'
+" Plugin 'easymotion/vim-easymotion' moze kiedys
 
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'elmcast/elm-vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
 
+
+" Ack/The Silver Searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
 " NERDTree
@@ -180,12 +149,19 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 
-
 " CtrlP
 
 " Ignore .gitignore files in CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+" Neoformat
+
+" Format all files on save
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * Neoformat
+" augroup END
 
 
 " Go
@@ -206,4 +182,8 @@ let g:go_fmt_autosave = 0
 let g:go_fmt_fail_silently = 1
 let g:go_play_open_browser = 0
 
+
+" Elm
+let g:elm_format_autosave = 1
+autocmd BufWritePost *.elm ElmMake
 

@@ -3,7 +3,7 @@ source ~/.aliases
 source ~/.functions
 
 prompt_splitter() {
-  echo "\e[48;5;161m $(printf "%*s" $(($(tput cols)-2)) "" | sed "s/ /-/g") \e[m"
+  echo "$(printf "%*s" $(tput cols) "" | sed "s/ /-/g")"
 }
 
 prompt_date() {
@@ -11,15 +11,16 @@ prompt_date() {
 }
 
 prompt_cwd() {
-  echo "[\w]"
+  echo "\W"
 }
 
 prompt_git_branch() {
-  echo "[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)]"
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+		echo :\($branch\)
+  fi
 }
 
-# export PS1="\n$(prompt_splitter)\n\n$(prompt_date) | $(prompt_cwd) | $(prompt_git_branch) \nλ: "
-export PS1="$(prompt_date) | $(prompt_cwd) | $(prompt_git_branch) \nλ: "
+export PS1="$(prompt_splitter)\n$(prompt_cwd)\$(prompt_git_branch) λ: "
 
 eval "$(rbenv init -)"
 
@@ -32,4 +33,4 @@ shopt -s dotglob # include filenames beginning with a '.' in the results of path
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
