@@ -248,6 +248,10 @@
 		<string>[1;5C</string>
 		<key>^F728</key>
 		<string>[3;5~</string>
+		<key>~F702</key>
+		<string>b</string>
+		<key>~F703</key>
+		<string>f</string>
 		<key>~F704</key>
 		<string>[17~</string>
 		<key>~F705</key>

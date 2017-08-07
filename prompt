@@ -1,0 +1,19 @@
+prompt_splitter() {
+  echo "$(printf "%*s" $(tput cols) "" | cut -c 2- | sed "s/ /-/g")"
+}
+
+prompt_date() {
+  echo "[\D{%T}]"
+}
+
+prompt_cwd() {
+  echo "\W"
+}
+
+prompt_git_branch() {
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+		echo :\($branch\)
+  fi
+}
+
+export PS1="$(prompt_splitter)\n$(prompt_cwd)\$(prompt_git_branch) λ: "

@@ -1,9 +1,9 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-alias ls="ls -G"
+alias ls="ls -aG"
 alias c="clear"
-alias rp="source ~/.bash_profile"
+alias rp="source ~/.prompt"
 alias fixcamera="sudo killall VDCAssistant"
 
 # Git aliases
