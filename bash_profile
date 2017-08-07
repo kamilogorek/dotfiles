@@ -3,7 +3,7 @@ source ~/.aliases
 source ~/.functions
 
 prompt_splitter() {
-  echo "$(printf "%*s" $(tput cols) "" | sed "s/ /-/g")"
+  echo "$(printf "%*s" $(tput cols) "" | cut -c 2- | sed "s/ /-/g")"
 }
 
 prompt_date() {

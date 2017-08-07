@@ -1,7 +1,8 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-alias c=clear
+alias ls="ls -G"
+alias c="clear"
 alias rp="source ~/.bash_profile"
 alias fixcamera="sudo killall VDCAssistant"
 

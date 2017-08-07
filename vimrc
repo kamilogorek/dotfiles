@@ -4,7 +4,7 @@ set nocompatible
 " Enable syntax highlighting
 syntax enable
 set t_Co=256
-colorscheme sierra
+colorscheme dracula
 
 " Sets displaying line numbers "
 set nu
