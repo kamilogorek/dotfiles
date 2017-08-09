@@ -12,7 +12,7 @@ xcode-select --install > /dev/null 2>&1
 read
 
 echo "Symlinking dotfiles"
-for file in alacritty.yml aliases bash_profile editorconfig functions gitattributes gitconfig gitignore profile prompt ssh tmux tmux.conf vim vimrc
+for file in aliases bash_profile editorconfig functions gitattributes gitconfig gitignore profile prompt ssh tmux tmux.conf vim vimrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file

@@ -1,3 +1,5 @@
+export TERM=xterm-256color
+
 source `brew --prefix`/etc/profile.d/z.sh
 source ~/.aliases
 source ~/.functions

@@ -3,10 +3,13 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax enable
-set t_Co=256
+" set t_Co=256
 colorscheme dracula
 
-" Sets displaying line numbers "
+" Turn on mouse mode
+set mouse=a
+
+" Sets displaying line numbers
 set nu
 
 " Set 7 lines to the cursor - when moving vertically using j/k
