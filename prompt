@@ -16,4 +16,5 @@ prompt_git_branch() {
   fi
 }
 
-export PS1="$(prompt_splitter)\n$(prompt_cwd)\$(prompt_git_branch) λ: "
+# export PS1="$(prompt_splitter)\n$(prompt_cwd)\$(prompt_git_branch) λ: "
+export PS1="$(prompt_cwd)\$(prompt_git_branch) λ: "

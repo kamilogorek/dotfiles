@@ -3,11 +3,7 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax enable
-" set t_Co=256
 colorscheme dracula
-
-" Turn on mouse mode
-set mouse=a
 
 " Sets displaying line numbers
 set nu
@@ -96,6 +92,7 @@ set laststatus=2
 
 " " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+map <leader>rr :so $MYVIMRC<cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -125,9 +122,9 @@ Plugin 'sbdchd/neoformat'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'elmcast/elm-vim'
+Plugin 'prettier/vim-prettier'
 
 
 " All of your Plugins must be added before the following line
@@ -160,33 +157,4 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Neoformat
 
-" Format all files on save
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre * Neoformat
-" augroup END
-
-
-" Go
-let g:go_disable_autoinstall = 0
-let g:go_get_update = 0
-
-" Highlight
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_structs = 1
-
-let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 0
-let g:go_fmt_fail_silently = 1
-let g:go_play_open_browser = 0
-
-
-" Elm
-let g:elm_format_autosave = 1
-autocmd BufWritePost *.elm ElmMake
-
+autocmd BufWritePre *.{js,jsx,json,ts} Neoformat

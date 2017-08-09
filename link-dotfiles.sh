@@ -12,7 +12,7 @@ xcode-select --install > /dev/null 2>&1
 read
 
 echo "Symlinking dotfiles"
-for file in aliases bash_profile editorconfig functions gitattributes gitconfig gitignore profile prompt ssh tmux tmux.conf vim vimrc
+for file in aliases bash_profile bashrc bash_sessions_disable editorconfig functions gitattributes gitconfig gitignore profile prompt ssh tmux tmux.conf vim vimrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file
@@ -25,7 +25,7 @@ brew update
 brew upgrade --all
 
 echo "Installing homebrew packages"
-for package in bash coreutils git httpie jq node reattach-to-user-namespace the_silver_searcher tmux vim z
+for package in bash coreutils git httpie jq node reattach-to-user-namespace the_silver_searcher tmux tree vim z
 do
     brew install $package
 done

@@ -6,7 +6,6 @@
 .LSOverride
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -24,5 +23,3 @@ Icon
 
 ### Composer ###
 composer.phar
-
-Session.vim
