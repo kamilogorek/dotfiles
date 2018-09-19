@@ -12,8 +12,6 @@ shopt -s dotglob # include filenames beginning with a '.' in the results of path
 
 . ~/dotfiles/git-completion.bash
 . ~/dotfiles/npm-completion.bash
-. ~/.asdf/asdf.sh
-. ~/.asdf/completions/asdf.bash
 
 # Python
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"

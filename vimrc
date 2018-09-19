@@ -118,7 +118,6 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'git://github.com/tpope/vim-abolish.git'
 Plugin 'tpope/vim-obsession'
 Plugin 'sbdchd/neoformat'
-" Plugin 'easymotion/vim-easymotion' moze kiedys
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
