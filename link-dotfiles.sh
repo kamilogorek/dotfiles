@@ -31,13 +31,5 @@ do
 done
 brew install vim --override-system-vi
 
-brew tap caskroom/cask
-
-echo "Installing cask packages"
-for package in google-chrome slack spotify spectacle 1password
-do
-    brew install $package
-done
-
 brew cleanup
 

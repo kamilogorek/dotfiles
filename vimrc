@@ -155,5 +155,4 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 
 " Neoformat
-
-autocmd BufWritePre *.{js,jsx,json,ts} Neoformat
+autocmd BufWritePre *.{js,jsx,json,ts,ex,exs} Neoformat

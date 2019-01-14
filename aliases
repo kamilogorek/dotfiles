@@ -1,14 +1,9 @@
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-
 alias ls="ls -aG"
 alias c="clear"
 alias rp="source ~/.prompt"
-alias fixcamera="sudo killall VDCAssistant"
 alias update="brew update && brew upgrade && brew cleanup -s"
 alias purge="curl -X PURGE"
 
-# Git aliases
 alias git="hub"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
@@ -17,14 +12,8 @@ alias gdw="git diff -w --word-diff-regex=[^[:space:]]"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 alias gco="git checkout"
-alias ga="git commit -a --amend --no-edit"
+alias ga="git commit --amend --no-edit"
 alias wipe="git reset --hard && git clean -df"
 
 alias g="grep-defaults"
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ss="open -a ScreenSaverEngine"
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-alias listapps="osascript -e 'tell application\"System Events\" to get name of (processes where background only is false)'"
-alias notes="vim /Users/kamilogorek/Library/Mobile\ Documents/com\~apple\~CloudDocs/notes.md"
