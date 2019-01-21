@@ -2,8 +2,8 @@
 set nocompatible
 
 " Enable syntax highlighting
-syntax enable
-colorscheme dracula
+syntax on
+set t_Co=256
 
 " Sets displaying line numbers
 set nu
@@ -115,8 +115,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'git://github.com/tpope/vim-abolish.git'
-Plugin 'tpope/vim-obsession'
+Plugin 'git://github.com/tpope/vim-abolish.git' " search for, substitute, and abbreviate multiple variants of a word
 Plugin 'sbdchd/neoformat'
 
 Plugin 'pangloss/vim-javascript'
@@ -125,15 +124,15 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'prettier/vim-prettier'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
 
+" Color scheme
+colorscheme evening
 
 " Ack/The Silver Searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
 
 " NERDTree
 
@@ -147,12 +146,10 @@ let NERDTreeShowHidden = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-
 " CtrlP
 
 " Ignore .gitignore files in CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 
 " Neoformat
 autocmd BufWritePre *.{js,jsx,json,ts,ex,exs} Neoformat

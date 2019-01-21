@@ -12,24 +12,32 @@ xcode-select --install > /dev/null 2>&1
 read
 
 echo "Symlinking dotfiles"
-for file in aliases bash_profile bashrc bash_sessions_disable editorconfig functions gitattributes gitconfig gitignore profile prompt ssh tmux tmux.conf vim vimrc
+for file in bash_profile bashrc gitconfig vimrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file
 done
-
-echo "Installing homebrew"
+ 
+echo "Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+echo "Updating Homebrew"
 brew update
 brew upgrade --all
 
-echo "Installing homebrew packages"
-for package in bash coreutils git httpie jq node reattach-to-user-namespace the_silver_searcher tmux tree vim z
+echo "Installing Homebrew packages"
+for package in bash coreutils git z
 do
     brew install $package
 done
 brew install vim --override-system-vi
 
+echo "Cleaning up Homebrew"
 brew cleanup
 
+echo "Installing VIM Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+echo "Reload Bash"
+exec bash
