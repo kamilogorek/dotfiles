@@ -33,6 +33,7 @@
   excludesfile = /Users/kamilogorek/.gitignore
   editor = /usr/local/bin/vim
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [help]
   autocorrect = 5
 [status]

@@ -26,7 +26,7 @@ brew update
 brew upgrade --all
 
 echo "Installing Homebrew packages"
-for package in ag bash bash-completion coreutils git hub node vim yarn z
+for package in ag bash bash-completion coreutils diff-so-fancy git hub node vim yarn z
 do
     brew install $package
 done
