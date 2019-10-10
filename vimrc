@@ -77,15 +77,33 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Allows for mouse scrolls/click
+set mouse=a
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
+" Clear the search buffer  when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
+
+" Multipurpose Tab Key
+" Indent if we're at the beginning of a line. Else, do completion.
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>"
 
 " Always show the status line
 set laststatus=2
@@ -96,7 +114,6 @@ map <leader>rr :so $MYVIMRC<cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
 
 " Vundle Setup
 
@@ -121,15 +138,14 @@ Plugin 'sbdchd/neoformat'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'fatih/vim-go'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'prettier/vim-prettier'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
-
-" Color scheme
-colorscheme evening
 
 " Ack/The Silver Searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -146,6 +162,12 @@ let NERDTreeShowHidden = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" This autocommand jumps to the last known position in a file just after opening it, if the '" mark is set: >
+autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+	\ |   exe "normal! g`\""
+	\ | endif
+
 " CtrlP
 
 " Ignore .gitignore files in CtrlP
@@ -153,3 +175,11 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Neoformat
 autocmd BufWritePre *.{js,jsx,json,ts,ex,exs} Neoformat
+
+" GoLangCi
+" command GoLangCI :cexpr system('golangci-lint run')
+" autocmd BufWritePre *.{go} GoLangCI
+
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'gocyclo', 'errcheck', 'deadcode']
+" let g:go_metalinter_enabled = ['vet', 'golint', 'gocyclo', 'errcheck', 'deadcode']

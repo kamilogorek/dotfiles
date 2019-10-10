@@ -4,8 +4,8 @@ echo "Please install XCode from App Store, and then press ENTER"
 open /Applications/App\ Store.app
 read
 
-echo "Please accept XCode license terms"
-sudo xcodebuild -license
+echo "Accepting XCode license terms"
+sudo xcodebuild -license accept
 
 echo "Installing XCode Command Line Tools, press ENTER when done"
 xcode-select --install > /dev/null 2>&1
@@ -26,11 +26,10 @@ brew update
 brew upgrade --all
 
 echo "Installing Homebrew packages"
-for package in bash coreutils git z
+for package in ag bash bash-completion coreutils git hub node vim yarn z
 do
     brew install $package
 done
-brew install vim --override-system-vi
 
 echo "Cleaning up Homebrew"
 brew cleanup
