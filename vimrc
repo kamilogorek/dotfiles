@@ -142,6 +142,7 @@ Plugin 'fatih/vim-go'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'prettier/vim-prettier'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required

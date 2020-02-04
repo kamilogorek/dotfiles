@@ -1,9 +1,12 @@
 export TERM=xterm-256color
+export LC_ALL=en_US.UTF-8
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Prompt
 
 prompt_git_branch() {
-  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [[ ! -e "${branch}" ]]; then
 		echo :\($branch\)
   fi
 }
@@ -17,6 +20,8 @@ alias c="clear"
 alias rp="source ~/.prompt"
 alias update="brew update && brew upgrade && brew cleanup -s"
 alias purge="curl -X PURGE"
+alias cat="bat -p"
+alias cdr="cd $(git rev-parse --show-toplevel)"
 
 eval "$(hub alias -s)"
 alias gs="git status"
@@ -32,10 +37,13 @@ alias g="grep-defaults"
 alias ss="open -a ScreenSaverEngine"
 alias fixaudio="sudo kextload /System/Library/Extensions/AppleHDA.kext"
 alias tb="nc termbin.com 9999 | pbcopy"
+alias yt="youtube-dl -f 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best'"
 
 alias dsn="echo https://363a337c11a64611be4845ad6e24f3ac@sentry.io/297378"
 alias sentry-js-check="cd /Users/kamilogorek/Projects/sentry/sentry-javascript && rm -rf node_modules/ packages/*/node_modules && yarn && yarn clean && yarn build && yarn lint && yarn test"
-alias sentry-link="yarn link @sentry/browser @sentry/node @sentry/core @sentry/minimal @sentry/hub @sentry/types @sentry/utils @sentry/typescript @sentry/integrations"
+alias sentry-link="yarn link @sentry/browser @sentry/node @sentry/apm @sentry/core @sentry/minimal @sentry/hub @sentry/types @sentry/utils @sentry/typescript @sentry/integrations"
+alias sdk-js="cd ~/Projects/sentry/sentry-javascript"
+alias sdk-go="cd ~/Projects/go/src/github.com/getsentry/sentry-go"
 
 # Functions
 
@@ -126,13 +134,3 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Projects/go/bin:$PATH"
 export GOPATH="$HOME/Projects/go"
 
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
