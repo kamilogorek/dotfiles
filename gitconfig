@@ -26,11 +26,7 @@
   default = upstream
   followTags = true
 [alias]
-  ci = commit
   co = checkout
-  st = status
-  br = branch
-  cp = cherry-pick
   git = !exec git
 [core]
   excludesfile = /Users/kamilogorek/.gitignore
@@ -43,7 +39,6 @@
   showUntrackedFiles = all
 [credential]
   helper = osxkeychain
-
 [diff]
 	noprefix = true
 [color "diff-highlight"]
