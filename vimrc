@@ -5,8 +5,8 @@ set nocompatible
 syntax on
 set t_Co=256
 
-" Sets displaying line numbers
-set nu
+" Sets displaying relative line numbers and current absolute line number
+set nu rnu
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=5
@@ -131,6 +131,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'git://github.com/tpope/vim-abolish.git' " search for, substitute, and abbreviate multiple variants of a word
 Plugin 'sbdchd/neoformat'
@@ -154,14 +155,19 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " NERDTree
 
 " Bind CTRL+n to open files tree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> <plug>NERDTreeTabsToggle<CR>
+
+" Automatically open NerdTree when opening a directory
+let g:nerdtree_tabs_open_on_console_startup = 2
+
+" Don't close current tab if there is only one window in it and it's NERDTree
+let g:nerdtree_tabs_autoclose = 0
 
 " Show hidden files
 let NERDTreeShowHidden = 1
 
-" Automatically open NerdTree when opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Remove 'Press ? for help' from the UI
+let NERDTreeMinimalUI = 1
 
 " This autocommand jumps to the last known position in a file just after opening it, if the '" mark is set: >
 autocmd BufReadPost *

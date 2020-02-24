@@ -10,6 +10,8 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+setopt menu_complete # Autoselect first option on tab-completion
+
 # Aliases
 
 alias ls="ls -aG"

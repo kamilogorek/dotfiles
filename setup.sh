@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Don't write .DS_Store files
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
 echo "=> Please install XCode from App Store, and then press ENTER"
 open /System/Applications/App\ Store.app
 read
