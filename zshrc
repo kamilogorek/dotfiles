@@ -10,7 +10,9 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-setopt menu_complete # Autoselect first option on tab-completion
+setopt no_menu_complete # Autoselect first option on tab-completion
+setopt auto_menu # Show list of matches on second tab-complete
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==36=36}:${(s.:.)LS_COLORS}")' # Color matched prefix on tab-complete
 
 # Aliases
 
@@ -53,6 +55,11 @@ function gl {
 function batch-rename {
   local PATTERN="s/$1/$2/g"
   for i in ./* ; do mv $i $(echo $i | sed -e $PATTERN) ; done;
+}
+
+function num-rename {
+  # rename all files in directory with a given extension to a number starting with 1 and padded with 2 zeros
+  rename -N 001 's/.*/$N.jpeg/' *.jpeg
 }
 
 function what-is-listening {

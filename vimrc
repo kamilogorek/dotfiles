@@ -21,6 +21,9 @@ set cmdheight=2
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+" Tab-complete till prefix only and double-tap for cycling
+set wildmode=list:longest,full
+
 " Ignore case when searching
 set ignorecase
 

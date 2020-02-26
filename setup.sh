@@ -14,7 +14,7 @@ echo "=> Accepting XCode license terms"
 sudo xcodebuild -license accept
 
 echo "=> Symlinking dotfiles"
-for file in gitconfig hushlogin vimrc zshrc
+for file in gitconfig hushlogin prettierrc vimrc zshrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file
@@ -28,7 +28,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag bat cask coreutils diff-so-fancy git vim youtube-dl z zsh
+for package in ag bat cask coreutils diff-so-fancy git rename vim youtube-dl z zsh
 do
     brew install $package
 done
