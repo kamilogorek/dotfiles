@@ -118,39 +118,31 @@ map <leader>rr :so $MYVIMRC<cr>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" Vundle Setup
+" vim-plug setup
 
-filetype off " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'flazz/vim-colorschemes'
+Plug 'mileszs/ack.vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'git://github.com/tpope/vim-abolish.git'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sbdchd/neoformat'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'fatih/vim-go'
+Plug 'elixir-lang/vim-elixir'
+Plug 'prettier/vim-prettier'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'cespare/vim-toml'
 
-Plugin 'flazz/vim-colorschemes'
-Plugin 'mileszs/ack.vim'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'git://github.com/tpope/vim-abolish.git' " search for, substitute, and abbreviate multiple variants of a word
-Plugin 'sbdchd/neoformat'
-
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'fatih/vim-go'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'prettier/vim-prettier'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'cespare/vim-toml'
-
-" All of your Plugins must be added before the following line
-call vundle#end() " required
-filetype plugin indent on " required
+call plug#end()
 
 " Ack/The Silver Searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'

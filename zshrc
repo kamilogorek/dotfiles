@@ -31,6 +31,7 @@ alias wipe="git reset --hard && git clean -df"
 alias tb="nc termbin.com 9999 | pbcopy"
 alias yt="youtube-dl -f 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best'"
 
+alias update-node-packages="npx npm-check-updates --u && npm install"
 alias sentry-js-check="cd /Users/kamilogorek/Projects/sentry/sentry-javascript && rm -rf node_modules/ packages/*/node_modules && yarn && yarn clean && yarn build && yarn lint && yarn test"
 alias sentry-link="yarn link @sentry/browser @sentry/node @sentry/apm @sentry/core @sentry/minimal @sentry/hub @sentry/types @sentry/utils @sentry/typescript @sentry/integrations"
 
