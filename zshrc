@@ -22,7 +22,6 @@ alias rp="source ~/.prompt"
 alias update="brew update && brew upgrade && brew cleanup -s"
 alias purge="curl -X PURGE"
 alias cat="bat -p"
-alias cdr="cd $(git rev-parse --show-toplevel 2> /dev/null)"
 
 alias gs="git status"
 alias gd="git diff"
@@ -36,6 +35,10 @@ alias sentry-js-check="cd /Users/kamilogorek/Projects/sentry/sentry-javascript &
 alias sentry-link="yarn link @sentry/browser @sentry/node @sentry/apm @sentry/core @sentry/minimal @sentry/hub @sentry/types @sentry/utils @sentry/typescript @sentry/integrations"
 
 # Functions
+
+function cdr {
+  cd $(git rev-parse --show-toplevel 2> /dev/null)
+}
 
 function gl {
   if [[ $1 == "" ]]; then

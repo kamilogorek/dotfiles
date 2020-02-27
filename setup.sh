@@ -42,9 +42,7 @@ done
 echo "=> Installing Language specific software"
 
 echo "=> Node"
-brew install yarn
-curl https://get.volta.sh | zsh
-volta install node
+brew install node
 
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
