@@ -3,7 +3,14 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax on
+
+" Set TrueTone 256 colors everywhere
 set t_Co=256
+set term=xterm-256color
+set termguicolors
+
+" Always show file tabs
+set showtabline=2
 
 " Sets displaying relative line numbers and current absolute line number
 set nu rnu
@@ -122,27 +129,26 @@ cmap w!! w !sudo tee > /dev/null %
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes'
+" theme plugins
+Plug 'morhetz/gruvbox'
+
+" common plugins
 Plug 'mileszs/ack.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'git://github.com/tpope/vim-abolish.git'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+
+" language specific plugins
 Plug 'leafgarland/typescript-vim'
-Plug 'fatih/vim-go'
-Plug 'elixir-lang/vim-elixir'
-Plug 'prettier/vim-prettier'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'cespare/vim-toml'
 
 call plug#end()
+
+" color theme
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 " Ack/The Silver Searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -177,11 +183,3 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Neoformat
 autocmd BufWritePre *.{js,jsx,json,ts,ex,exs} Neoformat
-
-" GoLangCi
-" command GoLangCI :cexpr system('golangci-lint run')
-" autocmd BufWritePre *.{go} GoLangCI
-
-" let g:go_metalinter_autosave = 1
-" let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'gocyclo', 'errcheck', 'deadcode']
-" let g:go_metalinter_enabled = ['vet', 'golint', 'gocyclo', 'errcheck', 'deadcode']

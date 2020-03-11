@@ -26,6 +26,7 @@ alias cat="bat -p"
 alias gs="git status"
 alias gd="git diff"
 alias ga="git commit --amend --no-edit"
+alias gcm="git checkout master && git pull"
 alias wipe="git reset --hard && git clean -df"
 
 alias tb="nc termbin.com 9999 | pbcopy"
