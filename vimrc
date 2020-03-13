@@ -9,8 +9,8 @@ set t_Co=256
 set term=xterm-256color
 set termguicolors
 
-" Always show file tabs
-set showtabline=2
+" Never show file tabs
+set showtabline=0
 
 " Sets displaying relative line numbers and current absolute line number
 set nu rnu

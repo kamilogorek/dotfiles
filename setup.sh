@@ -13,13 +13,6 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 echo "=> Accepting XCode license terms"
 sudo xcodebuild -license accept
 
-echo "=> Symlinking dotfiles"
-for file in gitconfig hushlogin prettierrc vimrc zshrc
-do
-    rm -rf ~/.$file
-    ln -s ~/dotfiles/$file ~/.$file
-done
- 
 echo "=> Installing Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -49,6 +42,15 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "=> Cleaning up"
 brew cleanup
+
+echo "=> Symlinking dotfiles"
+for file in gitconfig hushlogin prettierrc vimrc zshrc
+do
+    rm -rf ~/.$file
+    ln -s ~/dotfiles/$file ~/.$file
+done
+rm -rf /Users/kamilogorek/Library/Application\ Support/Code/User/settings.json
+ln -s ~/dotfiles/vscode.json /Users/kamilogorek/Library/Application\ Support/Code/User/settings.json
 
 echo "=> Installing vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

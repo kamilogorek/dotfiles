@@ -1,0 +1,57 @@
+// code --install-extension iocave.customize-ui
+// code --install-extension jdinhlife.gruvbox
+
+{
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "native",
+  "workbench.statusBar.visible": true,
+  "workbench.editor.showIcons": false,
+  "workbench.iconTheme": null,
+  "workbench.fontAliasing": "auto",
+  "workbench.tree.renderIndentGuides": "none",
+  "breadcrumbs.enabled": false,
+
+  "customizeUI.titleBar": "inline",
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.listRowHeight": 16,
+  "customizeUI.font.regular": "JetBrains Mono",
+  "customizeUI.font.monospace": "JetBrains Mono",
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 5000,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 16,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderControlCharacters": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "extensions.ignoreRecommendations": true,
+  "git.enabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["-s --fast"],
+  "go.testFlags": ["-v"],
+  "go.autocompleteUnimportedPackages": true,
+  "go.useLanguageServer": true
+}
