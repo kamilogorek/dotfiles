@@ -10,6 +10,7 @@
   "workbench.iconTheme": null,
   "workbench.fontAliasing": "auto",
   "workbench.tree.renderIndentGuides": "none",
+  "workbench.startupEditor": "newUntitledFile",
   "breadcrumbs.enabled": false,
 
   "customizeUI.titleBar": "inline",
@@ -53,5 +54,9 @@
   "go.lintFlags": ["-s --fast"],
   "go.testFlags": ["-v"],
   "go.autocompleteUnimportedPackages": true,
-  "go.useLanguageServer": true
+  "go.useLanguageServer": true,
+  "rust-analyzer.displayInlayHints": false,
+  "rust-analyzer.cargo-watch.arguments": [
+    "--all-features"
+  ]
 }

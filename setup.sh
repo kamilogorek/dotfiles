@@ -40,6 +40,14 @@ brew install node
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+echo "=> Elixir"
+brew install elixir
+
+echo "=> Clojure"
+brew cask install java
+brew install leiningen
+brew install clojure/tools/clojure
+
 echo "=> Cleaning up"
 brew cleanup
 
