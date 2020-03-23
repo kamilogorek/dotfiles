@@ -66,5 +66,11 @@ vim +PlugInstall +qall
 
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "=> Installing p10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 p10k configure
+
+echo "=> Symlinking p10k config"
+rm -rf ~/.p10k.zsh
+ln -s ~/dotfiles/p10k ~/.p10k.zsh

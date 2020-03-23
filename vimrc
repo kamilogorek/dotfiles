@@ -10,7 +10,7 @@ set term=xterm-256color
 set termguicolors
 
 " Never show file tabs
-set showtabline=0
+set showtabline=2
 
 " Sets displaying relative line numbers and current absolute line number
 set nu rnu
@@ -143,6 +143,7 @@ Plug 'sbdchd/neoformat'
 
 " language specific plugins
 Plug 'leafgarland/typescript-vim'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 

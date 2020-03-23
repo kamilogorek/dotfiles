@@ -78,12 +78,17 @@ function kill-on-port {
 # Packages
 source `brew --prefix`/etc/profile.d/z.sh
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 # Python
-source /usr/local/bin/virtualenvwrapper.sh
+eval "$(pyenv init -)"
 
 # JavaScript
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export VOLTA_HOME="/Users/kamilogorek/.volta"
+grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -91,3 +96,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go
 export PATH="$HOME/Projects/go/bin:$PATH"
 export GOPATH="$HOME/Projects/go"
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
