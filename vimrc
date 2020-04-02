@@ -3,6 +3,7 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax on
+filetype plugin indent on
 
 " Set TrueTone 256 colors everywhere
 set t_Co=256
@@ -145,6 +146,13 @@ Plug 'sbdchd/neoformat'
 Plug 'leafgarland/typescript-vim'
 Plug 'elixir-editors/vim-elixir'
 
+" Clojure
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+
 call plug#end()
 
 " color theme
@@ -184,3 +192,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Neoformat
 autocmd BufWritePre *.{js,jsx,json,ts,ex,exs} Neoformat
+
+" Clojure
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax   clojure RainbowParenthesesLoadRound
+autocmd Syntax   clojure RainbowParenthesesLoadSquare
+autocmd Syntax   clojure RainbowParenthesesLoadBraces

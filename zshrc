@@ -16,6 +16,9 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 # Aliases
 
+alias reload="PATH="" exec /bin/zsh -l"
+alias cheatsheet="cat ~/dotfiles/cheatsheet.md"
+
 alias ls="ls -aG"
 alias c="clear"
 alias rp="source ~/.prompt"

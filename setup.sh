@@ -52,7 +52,7 @@ echo "=> Cleaning up"
 brew cleanup
 
 echo "=> Symlinking dotfiles"
-for file in gitconfig hushlogin prettierrc vimrc zshrc
+for file in gitconfig hushlogin vimrc zshrc
 do
     rm -rf ~/.$file
     ln -s ~/dotfiles/$file ~/.$file

@@ -2,7 +2,6 @@
 // code --install-extension jdinhlife.gruvbox
 
 {
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "window.zoomLevel": 0,
   "window.titleBarStyle": "native",
   "workbench.statusBar.visible": true,
@@ -56,9 +55,14 @@
   "go.testFlags": ["-v"],
   "go.autocompleteUnimportedPackages": true,
   "go.useLanguageServer": true,
+  "rust-analyzer.updates.askBeforeDownload": false,
   "rust-analyzer.inlayHints.parameterHints": false,
   "rust-analyzer.inlayHints.typeHints": false,
-  "rust-analyzer.cargo-watch.arguments": [
-    "--all-features"
-  ]
+  "rust-analyzer.cargo-watch.arguments": ["--all-features", "--all"],
+  "crates.githubAuthBasic": "",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.sideBar.location": "left",
+  "[rust]": {
+    "editor.defaultFormatter": "matklad.rust-analyzer"
+  }
 }
