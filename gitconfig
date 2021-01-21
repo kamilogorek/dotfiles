@@ -1,48 +1,67 @@
 [user]
-  name = Kamil Ogórek
-  email = kamil.ogorek@gmail.com
+name = Kamil Ogórek
+email = kamil.ogorek@gmail.com
+
 [color]
-  branch = auto
-  diff = auto
-  status = auto
-  interactive = auto
-	ui = true
+branch = auto
+diff = auto
+status = auto
+interactive = auto
+ui = true
+
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+current = yellow reverse
+local = yellow
+remote = green
+
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	commit = yellow bold
-	whitespace = red reverse
+meta = 11
+frag = magenta bold
+old = red bold
+new = green bold
+commit = yellow bold
+whitespace = red reverse
+
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+added = yellow
+changed = green
+untracked = cyan
+
 [push]
-  default = upstream
-  followTags = true
+default = upstream
+followTags = true
+
 [alias]
-  co = checkout
-  git = !exec git
+co = checkout
+git = !exec git
+
 [core]
-  excludesfile = /Users/kamilogorek/.gitignore
-  editor = /usr/local/bin/vim
-	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+excludesfile = /Users/kamilogorek/.gitignore
+editor = /usr/bin/vim
+autocrlf = input
+pager = diff-so-fancy | less --tabs=4 -RFX
+
 [help]
-  autocorrect = 5
+autocorrect = 5
+
 [status]
-  showUntrackedFiles = all
+showUntrackedFiles = all
+
 [credential]
-  helper = osxkeychain
+helper = osxkeychain
+
 [diff]
-	noprefix = true
+noprefix = true
+
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+oldNormal = red bold
+oldHighlight = red bold 52
+newNormal = green bold
+newHighlight = green bold 22
+
+[branch]
+sort = -committerdate
+
+[pull]
+rebase = false
+

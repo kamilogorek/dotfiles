@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+alias reload="PATH="" exec /bin/zsh -l"
+alias cht="cat ~/dotfiles/cheatsheet.md"
+alias cht-edit="vim ~/dotfiles/cheatsheet.md"
+
+alias lsa="ls -laG"
+alias c="clear"
+alias rp="source ~/.prompt"
+alias update="brew update && brew upgrade && brew cleanup -s"
+alias purge="curl -X PURGE"
+alias cat="bat -p"
+
+alias gs="git status"
+alias gd="git diff"
+alias ga="git commit --amend --no-edit"
+alias gcm="git checkout master && git pull"
+alias wipe="git reset --hard && git clean -df"
+
+alias tb="nc termbin.com 9999 | pbcopy"
+alias yt="youtube-dl -f 'bestvideo[ext=mp4][height<=720]+bestaudio[ext=m4a]/best[ext=mp4][height<=720]/best'"
+
+alias update-node-packages="npx npm-check-updates --u && npm install"
+alias sentry-js-check="cd /Users/kamilogorek/Projects/sentry/sentry-javascript; rm -rf node_modules/ packages/*/node_modules; yarn && yarn clean && yarn build && yarn lint && yarn test"
