@@ -1,11 +1,8 @@
 #!/bin/zsh
 
-function sentry-link {
-  SENTRY_JS_PACKAGES=(browser core hub integrations minimal node serverless tracing types utils);
-
-  for package in $SENTRY_JS_PACKAGES; do
-    yarn link @sentry/$package
-  done
+function batch-rename {
+  local PATTERN="s/$1/$2/g"
+  for i in ./* ; do mv $i $(echo $i | sed -e $PATTERN) ; done;
 }
 
 function cdr {
@@ -27,9 +24,12 @@ function gl {
   git log --graph --color --pretty="tformat:$FORMAT" -$LIMIT | column -t -s '{' | less -FXRS
 }
 
-function batch-rename {
-  local PATTERN="s/$1/$2/g"
-  for i in ./* ; do mv $i $(echo $i | sed -e $PATTERN) ; done;
+function join-videos {
+  ls -f $@ | perl -ne 'print "file $_"' | ffmpeg -protocol_whitelist file,tcp,http,pipe -f concat -i - -c copy joined.mp4
+}
+
+function kill-on-port {
+  sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1} | awk '{ print $2 }' | xargs kill -9;
 }
 
 function num-rename {
@@ -37,14 +37,14 @@ function num-rename {
   rename -N 001 's/.*/$N.jpeg/' *.jpeg
 }
 
-function join-videos {
-  ls -f $@ | perl -ne 'print "file $_"' | ffmpeg -protocol_whitelist file,tcp,http,pipe -f concat -i - -c copy joined.mp4
+function sentry-link {
+  SENTRY_JS_PACKAGES=(browser core hub integrations minimal node serverless tracing types utils);
+
+  for package in $SENTRY_JS_PACKAGES; do
+    yarn link @sentry/$package
+  done
 }
 
 function what-is-listening {
   sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1}
-}
-
-function kill-on-port {
-  sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1} | awk '{ print $2 }' | xargs kill -9;
 }
