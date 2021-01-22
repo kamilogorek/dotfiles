@@ -27,9 +27,9 @@ do
 done
 
 echo "=> Installing Cask apps"
-for app in google-chrome iterm2
+for app in google-chrome iterm2 visual-studio-code
 do
-    brew cask install $app
+    brew install --cask $app
 done
 
 echo "=> Installing Language specific software"
@@ -41,7 +41,7 @@ echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "=> Clojure"
-brew cask install java
+brew install --cask java
 brew install leiningen
 brew install clojure/tools/clojure
 
@@ -51,12 +51,14 @@ brew cleanup
 echo "=> Symlinking dotfiles"
 for file in aliases functions gitconfig hushlogin paths vimrc zshrc
 do
-    rm -rf ~/.$file
-    ln -s ~/dotfiles/$file ~/.$file
+    rm $HOME/.$file
+    ln -s $HOME/dotfiles/$file $HOME/.$file
 done
+rm $HOME/Library/Application\ Support/Code/User/settings.json	
+ln -s $HOME/dotfiles/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
 
 echo "=> Installing vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
 
 echo "=> Installing oh-my-zsh"
@@ -67,6 +69,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/the
 p10k configure
 
 echo "=> Symlinking p10k config"
-rm -rf ~/.p10k.zsh
-ln -s ~/dotfiles/p10k ~/.p10k.zsh
+rm $HOME/.p10k.zsh
+ln -s $HOME/dotfiles/p10k $HOME/.p10k.zsh
 

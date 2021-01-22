@@ -116,7 +116,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'jistr/vim-nerdtree-tabs' - remove if unused (22.01)
 Plug 'git://github.com/tpope/vim-abolish.git'
 
 " coding plugins
@@ -124,7 +124,9 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " language-specific plugins
+"" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"" Clojure
 " Plug 'Olical/conjure'
 Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-clojure-static'
@@ -132,6 +134,8 @@ Plug 'guns/vim-clojure-highlight'
 Plug 'luochen1990/rainbow'
 Plug 'venantius/vim-cljfmt'
 Plug 'clojure-vim/async-clj-omni'
+"" MDX
+Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()
 
@@ -166,11 +170,13 @@ nnoremap <silent> ]q :cnext<CR>
 let NERDTreeShowHidden = 1
 " Remove 'Press ? for help' from the UI
 let NERDTreeMinimalUI = 1
+" Bind CTRL+n to open files tree
+map <C-n> :NERDTreeToggle<CR>
 
 """ NERDTree Tabs
 
 " Bind CTRL+n to open files tree
-map <C-n> <plug>NERDTreeTabsToggle<CR>
+" map <C-n> <plug>NERDTreeTabsToggle<CR>
 " Automatically open NerdTree when opening a directory
 " let g:nerdtree_tabs_open_on_console_startup = 2
 " Don't close current tab if there is only one window in it and it's NERDTree
