@@ -21,7 +21,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag bat cask coreutils diff-so-fancy git vim youtube-dl z zsh
+for package in ag bat cask coreutils diff-so-fancy git neovim youtube-dl z zsh
 do
     brew install $package
 done

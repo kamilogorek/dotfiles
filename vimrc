@@ -9,43 +9,32 @@ set nocompatible
 
 " Set TrueTone 256 colors everywhere
 set t_Co=256
-set term=xterm-256color
 set termguicolors
 
 " Always show file tabs
 set showtabline=2
-
 " Sets displaying relative line numbers and current absolute line number
 set nu rnu
-
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=5
 
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
 " Ignore case when searching
 set ignorecase
-
 " When searching and uppercase is used, ignore ignorecase setting
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " For regular expressions turn magic on
 set magic
 
-" Use spaces instead of tabs
+" Use 2 spaces instead of tabs
 set expandtab
-
-" 1 tab == 2 spaces
 set shiftwidth=2
-set tabstop=2
-
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
-" set smartindent
-set wrap
+set softtabstop=2
 
 " Allows for mouse scrolls/click
 set mouse=a
@@ -59,6 +48,9 @@ set mouse=a
 " set nobackup
 " set nowb
 " set noswapfile
+
+" set smartindent
+" set wrap
 
 
 " = = = = = = = = = = = = = = = =
@@ -117,26 +109,29 @@ cmap w!! w !sudo tee > /dev/null %
 
 call plug#begin('~/.vim/plugged')
 
-" theme plugins
+" generic plugins
 Plug 'ayu-theme/ayu-vim'
-
-" common plugins
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'Valloric/MatchTagAlways'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'git://github.com/tpope/vim-abolish.git'
+
+" coding plugins
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Clojure
-Plug 'luochen1990/rainbow'
-
-" Go
+" language-specific plugins
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'Olical/conjure'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+Plug 'luochen1990/rainbow'
+Plug 'venantius/vim-cljfmt'
+Plug 'clojure-vim/async-clj-omni'
 
 call plug#end()
 
@@ -167,9 +162,9 @@ let NERDTreeMinimalUI = 1
 " Bind CTRL+n to open files tree
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 " Automatically open NerdTree when opening a directory
-let g:nerdtree_tabs_open_on_console_startup = 2
+" let g:nerdtree_tabs_open_on_console_startup = 2
 " Don't close current tab if there is only one window in it and it's NERDTree
-let g:nerdtree_tabs_autoclose = 0
+" let g:nerdtree_tabs_autoclose = 0
 
 """ CtrlP
 
@@ -194,4 +189,11 @@ let g:ale_fixers = {
 \}
 " Auto-fix on save
 let g:ale_fix_on_save = 1
+
+
+""" vim-cljfmt
+
+" Auto-format on save
+let g:clj_fmt_autosave = 1
+
 
