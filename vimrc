@@ -146,9 +146,19 @@ colorscheme ayu
 
 """ Ack/The Silver Searcher
 
+" let g:ackprg = 'ag --vimgrep' has the same effect but will report every match on the line.
 let g:ackprg = 'ag --nogroup --nocolor --column'
+" Auto close the Quickfix list after pressing '<enter>' on a list item
 let g:ack_autoclose = 1
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+" Don't jump directly to the first search result
 cnoreabbrev Ack Ack!
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>/ :Ack!<Space>
+" Navigate quickfix list with ease
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
 
 """ NERDTree
 
