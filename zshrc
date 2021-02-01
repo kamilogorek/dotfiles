@@ -16,10 +16,13 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 # z - jump around - https://github.com/rupa/z
 source `brew --prefix`/etc/profile.d/z.sh
-# direnv - https://direnv.net/
+# fzf - A command-line fuzzy finder - https://github.com/junegunn/fzf
+source ~/.fzf.zsh
+# direnv - unclutter your .profile - https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
 
 # local dotfiles
 source ~/.aliases
 source ~/.functions
 source ~/.paths
+

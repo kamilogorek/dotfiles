@@ -9,8 +9,7 @@
   "workbench.tree.renderIndentGuides": "none",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.sideBar.location": "left",
-
-  "breadcrumbs.enabled": false,
+  "workbench.colorTheme": "Ayu Mirage Bordered",
 
   "customizeUI.titleBar": "inline",
   "customizeUI.activityBar": "bottom",
@@ -34,5 +33,10 @@
 
   "extensions.ignoreRecommendations": true,
 
-  "git.enabled": false
+  "git.enabled": false,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

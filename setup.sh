@@ -21,13 +21,13 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag bat cask coreutils diff-so-fancy git neovim youtube-dl z zsh
+for package in ag bat cask coreutils diff-so-fancy fzf git neovim tmux youtube-dl z zsh
 do
     brew install $package
 done
 
 echo "=> Installing Cask apps"
-for app in google-chrome iterm2 visual-studio-code
+for app in alacritty google-chrome rectangle visual-studio-code
 do
     brew install --cask $app
 done
@@ -49,7 +49,7 @@ echo "=> Cleaning up"
 brew cleanup
 
 echo "=> Symlinking dotfiles"
-for file in aliases functions gitconfig hushlogin paths vimrc zshrc
+for file in alacritty.yml aliases functions gitconfig hushlogin paths tmux.conf vimrc zshrc
 do
     rm $HOME/.$file
     ln -s $HOME/dotfiles/$file $HOME/.$file
@@ -72,3 +72,5 @@ echo "=> Symlinking p10k config"
 rm $HOME/.p10k.zsh
 ln -s $HOME/dotfiles/p10k $HOME/.p10k.zsh
 
+echo "=> Installing fzf auto-completion and key bindings"
+$(brew --prefix)/opt/fzf/install

@@ -39,6 +39,12 @@ set softtabstop=2
 " Allows for mouse scrolls/click
 set mouse=a
 
+" Habit breaking, habit making - http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+
 " TODO: Remove if unused till March 1st
 "
 " Use Unix as the standard file type
@@ -136,6 +142,10 @@ Plug 'venantius/vim-cljfmt'
 Plug 'clojure-vim/async-clj-omni'
 "" MDX
 Plug 'jxnblk/vim-mdx-js'
+"" TOML
+Plug 'cespare/vim-toml'
+"" Rust
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -194,11 +204,17 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " Activate plugin
 let g:rainbow_active = 1
 
-""" Asynchronous Lint Engine
+""" neoclide/coc.nvim
+
+" Extensions to be installed
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-rust-analyzer']
+
+""" dense-analysis/ale
 
 " Configure appropriate languages support
 let g:ale_linters = {
-\  'clojure': ['clj-kondo', 'joker']
+\  'clojure': ['clj-kondo', 'joker'],
+\  'rust': ['analyzer']
 \}
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint'],
@@ -207,9 +223,14 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 
-""" vim-cljfmt
+""" venantius/vim-cljfmt
 
 " Auto-format on save
 let g:clj_fmt_autosave = 1
 
+
+""" rust-lang/rust.vim
+
+" Auto-format on save
+let g:rustfmt_autosave = 1
 
