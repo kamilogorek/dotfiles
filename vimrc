@@ -100,10 +100,10 @@ cmap w!! w !sudo tee > /dev/null %
 
 
 " This autocommand jumps to the last known position in a file just after opening it, if the '" mark is set: >
-" autocmd BufReadPost *
-"       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-"       \ |   exe "normal! g`\""
-"       \ | endif
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
 
 " = = = = = = = = = = = = = = = =
 "
@@ -146,6 +146,8 @@ Plug 'jxnblk/vim-mdx-js'
 Plug 'cespare/vim-toml'
 "" Rust
 Plug 'rust-lang/rust.vim'
+"" JavaScript
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
@@ -214,10 +216,15 @@ let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-rust-analyzer']
 " Configure appropriate languages support
 let g:ale_linters = {
 \  'clojure': ['clj-kondo', 'joker'],
-\  'rust': ['analyzer']
+\  'javascript': ['eslint'],
+\  'rust': ['analyzer'],
+\  'typescript': ['eslint'],
 \}
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \  'javascript': ['prettier', 'eslint'],
+\  'json': ['prettier', 'eslint'],
+\  'typescript': ['prettier', 'eslint'],
 \}
 " Auto-fix on save
 let g:ale_fix_on_save = 1
@@ -233,4 +240,3 @@ let g:clj_fmt_autosave = 1
 
 " Auto-format on save
 let g:rustfmt_autosave = 1
-

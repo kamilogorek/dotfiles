@@ -38,13 +38,15 @@ function num-rename {
 }
 
 function sentry-link {
-  SENTRY_JS_PACKAGES=(browser core hub integrations minimal node serverless tracing types utils);
-
-  for package in $SENTRY_JS_PACKAGES; do
+  for package in `ls /Users/kamilogorek/Projects/sentry/repositories/sentry-javascript/packages`; do
     yarn link @sentry/$package
   done
 }
 
 function what-is-listening {
-  sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1}
+  sudo lsof -iTCP -sTCP:LISTEN -n -P | grep :${1}
+}
+
+function kill-port {
+  lsof -ti :$1 | xargs kill
 }

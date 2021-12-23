@@ -18,6 +18,8 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 source `brew --prefix`/etc/profile.d/z.sh
 # fzf - A command-line fuzzy finder - https://github.com/junegunn/fzf
 source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # direnv - unclutter your .profile - https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
 
@@ -26,3 +28,4 @@ source ~/.aliases
 source ~/.functions
 source ~/.paths
 
+eval "$(pyenv init --path)"
