@@ -54,12 +54,12 @@ do
     rm $HOME/.$file
     ln -s $HOME/dotfiles/$file $HOME/.$file
 done
-rm $HOME/Library/Application\ Support/Code/User/settings.json	
-ln -s $HOME/dotfiles/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
 
-echo "=> Installing vim-plug"
+echo "=> Installing vim-plug and neovim config"
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
+mkdir -p $HOME/.config/nvim
+ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim
 
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

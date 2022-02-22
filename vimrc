@@ -45,18 +45,16 @@ set mouse=a
 " noremap <Left> <NOP>
 " noremap <Right> <NOP>
 
-" TODO: Remove if unused till March 1st
-"
 " Use Unix as the standard file type
-" set ffs=unix,dos,mac
+set ffs=unix,dos,mac
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set nobackup
-" set nowb
-" set noswapfile
+set nobackup
+set nowb
+set noswapfile
 
-" set smartindent
-" set wrap
+set smartindent
+set wrap
 
 
 " = = = = = = = = = = = = = = = =
@@ -229,12 +227,10 @@ let g:ale_fixers = {
 " Auto-fix on save
 let g:ale_fix_on_save = 1
 
-
 """ venantius/vim-cljfmt
 
 " Auto-format on save
 let g:clj_fmt_autosave = 1
-
 
 """ rust-lang/rust.vim
 
