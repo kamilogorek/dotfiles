@@ -3,6 +3,8 @@
 # JavaScript
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"

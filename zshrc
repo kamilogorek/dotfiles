@@ -27,5 +27,3 @@ eval "$(direnv hook zsh)"
 source ~/.aliases
 source ~/.functions
 source ~/.paths
-
-eval "$(pyenv init --path)"
