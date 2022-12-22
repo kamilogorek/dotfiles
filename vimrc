@@ -114,7 +114,7 @@ autocmd BufReadPost *
 call plug#begin('~/.vim/plugged')
 
 " generic plugins
-Plug 'ayu-theme/ayu-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -155,8 +155,14 @@ call plug#end()
 "
 " = = = = = = = = = = = = = = = =
 
-let ayucolor="mirage"
-colorscheme ayu
+colorscheme tokyonight-storm
+
+""" neoclide/coc.nvim
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 """ Ack/The Silver Searcher
 

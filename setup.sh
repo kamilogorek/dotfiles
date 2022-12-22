@@ -37,13 +37,16 @@ echo "=> Installing Language specific software"
 echo "=> Node"
 brew install node
 
+echo "=> Volta"
+curl https://get.volta.sh | bash
+
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-echo "=> Clojure"
-brew install --cask java
-brew install leiningen
-brew install clojure/tools/clojure
+# echo "=> Clojure"
+# brew install --cask java
+# brew install leiningen
+# brew install clojure/tools/clojure
 
 echo "=> Cleaning up"
 brew cleanup

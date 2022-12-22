@@ -37,7 +37,7 @@ git = !exec git
 
 [core]
 excludesfile = /Users/kamilogorek/.gitignore
-editor = /usr/bin/vim
+editor = nvim
 autocrlf = input
 pager = diff-so-fancy | less --tabs=4 -RFX
 
@@ -66,4 +66,4 @@ sort = -committerdate
 rebase = false
 
 [init]
-	defaultBranch = master
+defaultBranch = master

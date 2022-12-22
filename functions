@@ -50,3 +50,8 @@ function what-is-listening {
 function kill-port {
   lsof -ti :$1 | xargs kill
 }
+
+function repro {
+  mkdir /Users/kamilogorek/Projects/repros/$(echo $1 | sed 's/\//\-/g')
+  cd $_
+}

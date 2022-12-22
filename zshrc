@@ -27,3 +27,5 @@ eval "$(direnv hook zsh)"
 source ~/.aliases
 source ~/.functions
 source ~/.paths
+
+export SENTRY_POST_MERGE_AUTO_UPDATE=1

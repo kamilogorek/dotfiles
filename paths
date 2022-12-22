@@ -12,3 +12,24 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go
 export PATH="$HOME/Projects/go/bin:$PATH"
 export GOPATH="$HOME/Projects/go"
+
+# Flutter
+export PATH="$HOME/Projects/envs/flutter/bin:$PATH"
+
+# Python
+eval "$(pyenv init --path)"
+
+# Deno
+export DENO_INSTALL="/Users/kamilogorek/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# Bun completions
+[ -s "/Users/kamilogorek/.bun/_bun" ] && source "/Users/kamilogorek/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Pnpm
+export PNPM_HOME="/Users/kamilogorek/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
