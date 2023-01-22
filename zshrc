@@ -29,3 +29,4 @@ source ~/.functions
 source ~/.paths
 
 export SENTRY_POST_MERGE_AUTO_UPDATE=1
+export FCEDIT=nvim
