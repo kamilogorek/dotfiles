@@ -28,7 +28,7 @@ do
 done
 
 echo "=> Installing Cask apps"
-for app in alacritty google-chrome rectangle visual-studio-code
+for app in alacritty google-chrome rectangle visual-studio-code homebrew/cask-fonts/font-jetbrains-mono
 do
     brew install --cask $app
 done

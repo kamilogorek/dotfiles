@@ -403,7 +403,7 @@ font:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/local/bin/tmux
+  program: tmux
 
 # Startup directory
 #
