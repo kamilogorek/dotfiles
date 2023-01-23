@@ -14,7 +14,8 @@ echo "=> Accepting XCode license terms"
 sudo xcodebuild -license accept
 
 echo "=> Installing Homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "=> Updating Homebrew"
 brew update
@@ -43,10 +44,8 @@ curl https://get.volta.sh | bash
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# echo "=> Clojure"
-# brew install --cask java
-# brew install leiningen
-# brew install clojure/tools/clojure
+echo "=> Python"
+brew install pyenv
 
 echo "=> Cleaning up"
 brew cleanup
@@ -59,9 +58,10 @@ do
 done
 
 echo "=> Installing vim-plug and neovim config"
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
 mkdir -p $HOME/.config/nvim
+rm -r $HOME/.config/nvim
 ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim
 
 echo "=> Installing oh-my-zsh"
@@ -69,7 +69,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 echo "=> Installing p10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-p10k configure
 
 echo "=> Symlinking p10k config"
 rm $HOME/.p10k.zsh

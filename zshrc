@@ -14,6 +14,9 @@ setopt auto_menu
 # Color matched prefix on tab-complete
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==36=36}:${(s.:.)LS_COLORS}")'
 
+# Setup Brew env variables
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # z - jump around - https://github.com/rupa/z
 source `brew --prefix`/etc/profile.d/z.sh
 # fzf - A command-line fuzzy finder - https://github.com/junegunn/fzf

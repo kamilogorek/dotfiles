@@ -128,24 +128,12 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " language-specific plugins
-"" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"" Clojure
-" Plug 'Olical/conjure'
-Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-Plug 'luochen1990/rainbow'
-Plug 'venantius/vim-cljfmt'
-Plug 'clojure-vim/async-clj-omni'
-"" MDX
-Plug 'jxnblk/vim-mdx-js'
 "" TOML
 Plug 'cespare/vim-toml'
 "" Rust
 Plug 'rust-lang/rust.vim'
 "" JavaScript
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
