@@ -45,7 +45,7 @@ echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "=> Python"
-brew install pyenv
+brew install direnv pyenv
 
 echo "=> Cleaning up"
 brew cleanup
