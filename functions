@@ -30,3 +30,7 @@ function repro {
   mkdir /Users/kamilogorek/Projects/repros/$(echo $1 | sed 's/\//\-/g')
   cd $_
 }
+
+function cht {
+  curl cheat.sh/$1
+}
