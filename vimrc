@@ -39,12 +39,6 @@ set softtabstop=2
 " Allows for mouse scrolls/click
 set mouse=a
 
-" Habit breaking, habit making - http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
@@ -53,9 +47,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" Enable smart indenting and line wrapping
 set smartindent
 set wrap
 
+" Enable backspace key to work in any mode
+set backspace=indent,eol,start
 
 " = = = = = = = = = = = = = = = =
 "
@@ -85,18 +82,6 @@ inoremap <s-tab> <c-n>"
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" TODO: Remove if unused till March 1st
-"
-" " Toggle paste mode on and off
-" map <leader>pp :setlocal paste!<cr>
-" map <leader>rr :so $MYVIMRC<cr>
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-" vnoremap <silent> * :call VisualSelection('f')<CR>
-" vnoremap <silent> # :call VisualSelection('b')<CR>
-
-
 " This autocommand jumps to the last known position in a file just after opening it, if the '" mark is set: >
 autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
@@ -109,31 +94,12 @@ autocmd BufReadPost *
 "
 " = = = = = = = = = = = = = = = =
 
-" vim-plug setup
-
 call plug#begin('~/.vim/plugged')
 
-" generic plugins
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'tpope/vim-sensible'
-Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
-" Plug 'jistr/vim-nerdtree-tabs' - remove if unused (22.01)
-Plug 'git://github.com/tpope/vim-abolish.git'
-
-" coding plugins
-Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" language-specific plugins
-"" TOML
-Plug 'cespare/vim-toml'
-"" Rust
-Plug 'rust-lang/rust.vim'
-"" JavaScript
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -143,14 +109,10 @@ call plug#end()
 "
 " = = = = = = = = = = = = = = = =
 
-colorscheme tokyonight-storm
-
-""" neoclide/coc.nvim
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+try
+    colorscheme tokyonight-storm
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
 
 """ Ack/The Silver Searcher
 
@@ -177,56 +139,9 @@ let NERDTreeMinimalUI = 1
 " Bind CTRL+n to open files tree
 map <C-n> :NERDTreeToggle<CR>
 
-""" NERDTree Tabs
-
-" Bind CTRL+n to open files tree
-" map <C-n> <plug>NERDTreeTabsToggle<CR>
-" Automatically open NerdTree when opening a directory
-" let g:nerdtree_tabs_open_on_console_startup = 2
-" Don't close current tab if there is only one window in it and it's NERDTree
-" let g:nerdtree_tabs_autoclose = 0
-
 """ CtrlP
 
 " CtrlP will now root itself within that directory rather than continuing up the stack to find your .git directory.
 let g:ctrlp_root_markers = ['deps.edn']
 " Ignore .gitignore files in CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-""" luochen1990/rainbow
-
-" Activate plugin
-let g:rainbow_active = 1
-
-""" neoclide/coc.nvim
-
-" Extensions to be installed
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-rust-analyzer']
-
-""" dense-analysis/ale
-
-" Configure appropriate languages support
-let g:ale_linters = {
-\  'clojure': ['clj-kondo', 'joker'],
-\  'javascript': ['eslint'],
-\  'rust': ['analyzer'],
-\  'typescript': ['eslint'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'javascript': ['prettier', 'eslint'],
-\  'json': ['prettier', 'eslint'],
-\  'typescript': ['prettier', 'eslint'],
-\}
-" Auto-fix on save
-let g:ale_fix_on_save = 1
-
-""" venantius/vim-cljfmt
-
-" Auto-format on save
-let g:clj_fmt_autosave = 1
-
-""" rust-lang/rust.vim
-
-" Auto-format on save
-let g:rustfmt_autosave = 1

@@ -1,14 +1,3 @@
-#!/bin/zsh
-
-function batch-rename {
-  local PATTERN="s/$1/$2/g"
-  for i in ./* ; do mv $i $(echo $i | sed -e $PATTERN) ; done;
-}
-
-function cdr {
-  cd $(git rev-parse --show-toplevel 2> /dev/null)
-}
-
 function gl {
   if [[ $1 == "" ]]; then
     local LIMIT=20
@@ -24,31 +13,17 @@ function gl {
   git log --graph --color --pretty="tformat:$FORMAT" -$LIMIT | column -t -s '{' | less -FXRS
 }
 
-function join-videos {
-  ls -f $@ | perl -ne 'print "file $_"' | ffmpeg -protocol_whitelist file,tcp,http,pipe -f concat -i - -c copy joined.mp4
-}
-
 function kill-on-port {
   sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1} | awk '{ print $2 }' | xargs kill -9;
-}
-
-function num-rename {
-# rename all files in directory with a given extension to a number starting with 1 and padded with 2 zeros
-  rename -N 001 's/.*/$N.jpeg/' *.jpeg
-}
-
-function sentry-link {
-  for package in `ls /Users/kamilogorek/Projects/sentry/repositories/sentry-javascript/packages`; do
-    yarn link @sentry/$package
-  done
 }
 
 function what-is-listening {
   sudo lsof -iTCP -sTCP:LISTEN -n -P | grep :${1}
 }
 
-function kill-port {
-  lsof -ti :$1 | xargs kill
+function batch-rename {
+  local PATTERN="s/$1/$2/g"
+  for i in ./* ; do mv $i $(echo $i | sed -e $PATTERN) ; done;
 }
 
 function repro {
