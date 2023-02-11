@@ -27,7 +27,7 @@ function batch-rename {
 }
 
 function repro {
-  mkdir /Users/kamilogorek/Projects/repros/$(echo $1 | sed 's/\//\-/g')
+  mkdir -p /Users/kamilogorek/Projects/repros/$(echo $1 | sed 's/\//\-/g')
   cd $_
 }
 

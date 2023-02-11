@@ -66,3 +66,6 @@ rebase = false
 
 [init]
 defaultBranch = master
+
+[submodule]
+recurse = true

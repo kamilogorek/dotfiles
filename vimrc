@@ -26,6 +26,8 @@ set splitright
 set ignorecase
 " When searching and uppercase is used, ignore ignorecase setting
 set smartcase
+" Enable incremental search
+set incsearch
 " Highlight search results
 set hlsearch
 " For regular expressions turn magic on
@@ -62,6 +64,9 @@ set backspace=indent,eol,start
 
 " Clear the search buffer  when hitting return
 :nnoremap <CR> :nohlsearch<cr>
+
+" Allow for forward deletion in insert mode
+inoremap <C-d> <Del>
 
 " Treat long lines as break lines (wrapped lines will be 'virtually' split into separate lines for navigation)
 map j gj
