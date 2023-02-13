@@ -58,7 +58,7 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 vim +PlugInstall +qall
 
 echo "=> Symlinking dotfiles"
-for file in gitconfig vimrc zshrc
+for file in gitconfig gitignore vimrc zshrc
 do
     rm $HOME/.$file
     ln -s $HOME/dotfiles/$file $HOME/.$file

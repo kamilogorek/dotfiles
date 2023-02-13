@@ -39,6 +39,7 @@ git = !exec git
 editor = vim
 autocrlf = input
 pager = diff-so-fancy | less --tabs=4 -RFX
+excludesfile = ~/.gitignore
 
 [help]
 autocorrect = 5
