@@ -22,7 +22,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag bat cask coreutils diff-so-fancy gh git fd fzf httpie jq kondo ncdu vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils diff-so-fancy gh git fd ffmpeg fzf httpie jq kondo n ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
@@ -35,17 +35,8 @@ done
 
 echo "=> Installing Language specific software"
 
-echo "=> Node"
-brew install node
-
-echo "=> Volta"
-curl https://get.volta.sh | bash
-
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-echo "=> Python"
-brew install direnv pyenv
 
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

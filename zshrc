@@ -24,7 +24,9 @@ source `brew --prefix`/etc/profile.d/z.sh
 export FZF_DEFAULT_COMMAND='fd'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# direnv - unclutter your .profile - https://github.com/direnv/direnv
-eval "$(direnv hook zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
+
+source /Users/kamilogorek/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 export SENTRY_POST_MERGE_AUTO_UPDATE=1
+
