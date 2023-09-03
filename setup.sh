@@ -15,7 +15,7 @@ sudo xcodebuild -license accept
 
 echo "=> Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 echo "=> Updating Homebrew"
 brew update
@@ -36,13 +36,13 @@ done
 echo "=> Installing Language specific software"
 
 echo "=> Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "=> Installing fzf auto-completion and key bindings"
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install --yes
 
 echo "=> Installing vim-plug and vim plugins"
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

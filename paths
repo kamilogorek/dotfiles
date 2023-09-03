@@ -1,5 +1,5 @@
 # Brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # JavaScript
 export PATH="$HOME/.yarn/bin:$PATH"

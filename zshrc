@@ -26,10 +26,3 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
 
-## Sentry
-#
-# It is assumed that pyenv is installed via Brew, so this is all we need to do.
-eval "$(pyenv init --path)"
-eval "$(direnv hook bash)"
-export SENTRY_POST_MERGE_AUTO_UPDATE=1
-
