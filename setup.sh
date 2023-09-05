@@ -35,6 +35,9 @@ done
 
 echo "=> Installing Language specific software"
 
+echo "=> Node.js"
+nvm install --lts
+
 echo "=> Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
@@ -54,6 +57,9 @@ do
     rm $HOME/.$file
     ln -s $HOME/dotfiles/$file $HOME/.$file
 done
+
+echo "Changing iTerm default profile"
+defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/kamilogorek/dotfiles"
 
 echo "=> Supressing shell welcome banner with .hushlogin" | tee $HOME/.hushlogin
 
