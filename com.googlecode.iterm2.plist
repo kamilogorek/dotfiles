@@ -695,8 +695,6 @@
 				<key>Red Component</key>
 				<real>0.14117647058823529</real>
 			</dict>
-			<key>Background Image Location</key>
-			<string>/Users/kamilogorek/dotfiles/background.webp</string>
 			<key>Background Image Mode</key>
 			<integer>2</integer>
 			<key>Badge Color</key>

@@ -22,7 +22,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils diff-so-fancy gh git fd ffmpeg fzf httpie jq kondo ncdu ngrok/ngrok/ngrok nvm orbstack vim yt-dlp/taps/yt-dlp z zsh
+for package in ag asdf atuin bat cask coreutils curl diff-so-fancy gh git fd ffmpeg fzf httpie jq kondo ncdu orbstack vim yt-dlp/taps/yt-dlp zsh
 do
     brew install $package
 done
@@ -33,19 +33,8 @@ do
     brew install --cask $app
 done
 
-echo "=> Installing Language specific software"
-
-echo "=> Node.js"
-nvm install --lts
-
-echo "=> Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "=> Installing fzf auto-completion and key bindings"
-$(brew --prefix)/opt/fzf/install --yes
 
 echo "=> Installing vim-plug and vim plugins"
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

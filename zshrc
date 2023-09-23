@@ -1,15 +1,16 @@
 export LC_ALL=en_US.UTF-8
 
 # Load oh-my-zsh
+plugins=(
+  asdf
+  brew
+  fzf
+  z
+)
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-ZSH_THEME="robbyrussell"
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export ZSH_THEME="robbyrussell"
 source "$ZSH/oh-my-zsh.sh"
-
-# local dotfiles
-source $HOME/dotfiles/paths
-source $HOME/dotfiles/functions
-source $HOME/dotfiles/aliases
 
 # Autoselect first option on tab-completion
 setopt no_menu_complete
@@ -18,11 +19,9 @@ setopt auto_menu
 # Color matched prefix on tab-complete
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==36=36}:${(s.:.)LS_COLORS}")'
 
-# z - jump around - https://github.com/rupa/z
-source `brew --prefix`/etc/profile.d/z.sh
-# fzf - A command-line fuzzy finder - https://github.com/junegunn/fzf
-export FZF_DEFAULT_COMMAND='fd'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# atuin - Magical shell history - https://github.com/atuinsh/atuin
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# Local dotfiles
+source $HOME/dotfiles/aliases
+source $HOME/dotfiles/functions
