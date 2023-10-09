@@ -15,7 +15,7 @@ sudo xcodebuild -license accept
 
 echo "=> Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "=> Updating Homebrew"
 brew update
@@ -43,7 +43,7 @@ vim +PlugInstall +qall
 echo "=> Symlinking dotfiles"
 for file in gitconfig gitignore vimrc zshrc
 do
-    rm $HOME/.$file
+    rm $HOME/.$file 2> /dev/null
     ln -s $HOME/dotfiles/$file $HOME/.$file
 done
 
