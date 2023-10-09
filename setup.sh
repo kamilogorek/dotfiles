@@ -36,10 +36,6 @@ done
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "=> Installing vim-plug and vim plugins"
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qall
-
 echo "=> Symlinking dotfiles"
 for file in gitconfig gitignore vimrc zshrc
 do
@@ -47,7 +43,12 @@ do
     ln -s $HOME/dotfiles/$file $HOME/.$file
 done
 
+echo "=> Installing vim-plug and vim plugins"
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
+
 echo "Changing iTerm default profile"
+defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -integer 1
 defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/kamilogorek/dotfiles"
 
 echo "=> Supressing shell welcome banner with .hushlogin" | tee $HOME/.hushlogin
