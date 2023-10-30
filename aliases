@@ -1,6 +1,5 @@
 alias c="clear"
 alias cat="bat -p"
-alias vim="nvim"
 alias ga="git commit --amend --no-edit"
 alias gca="git commit -am"
 alias gcm="git checkout main; git checkout master; git pull; git pull upstream main; git pull upstream master;"
