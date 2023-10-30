@@ -28,7 +28,8 @@ changed = green
 untracked = cyan
 
 [push]
-default = upstream
+default = simple
+autoSetupRemote = true
 followTags = true
 
 [alias]

@@ -34,3 +34,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Local dotfiles
 source $HOME/dotfiles/aliases
 source $HOME/dotfiles/functions
+source $HOME/dotfiles/paths
+
+export NEXT_TELEMETRY_DISABLED=1

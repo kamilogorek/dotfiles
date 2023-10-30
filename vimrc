@@ -101,10 +101,11 @@ autocmd BufReadPost *
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'ayu-theme/ayu-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
@@ -114,10 +115,8 @@ call plug#end()
 "
 " = = = = = = = = = = = = = = = =
 
-try
-    colorscheme tokyonight-storm
-catch /^Vim\%((\a\+)\)\=:E185/
-endtry
+let ayucolor="mirage"
+colorscheme ayu
 
 """ Ack/The Silver Searcher
 
@@ -143,18 +142,14 @@ let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 " Bind CTRL+n to open files tree
 map <C-n> :NERDTreeToggle<CR>
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | wincmd p | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
+" " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 """ CtrlP
 
-" CtrlP will now root itself within that directory rather than continuing up the stack to find your .git directory.
-let g:ctrlp_root_markers = ['deps.edn']
 " Ignore .gitignore files in CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
