@@ -22,7 +22,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy gh git fd ffmpeg fnm fzf httpie jq kondo ncdu ngrok/ngrok/ngrok orbstack tree vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo ncdu ngrok/ngrok/ngrok orbstack vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
@@ -49,6 +49,9 @@ vim +PlugInstall +qall
 
 echo "=> Installing Python openai library for howto script"
 pip3 install --upgrade openai
+
+echp "=> Installing nvm as Node version manager"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 echo "Changing iTerm default profile"
 defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -integer 1

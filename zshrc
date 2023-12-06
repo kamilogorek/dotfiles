@@ -19,8 +19,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # atuin - Magical shell history - https://github.com/atuinsh/atuin
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# fnm - Fast and simple Node.js version manager, built in Rust - https://github.com/Schniz/fnm
-eval "$(fnm env --use-on-cd)"
+# Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+source "$HOME/dotfiles/nvm-autoload"
 
 # z - jump around - https://github.com/rupa/z
 source `brew --prefix`/etc/profile.d/z.sh
