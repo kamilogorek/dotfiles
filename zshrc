@@ -1,9 +1,16 @@
 export LC_ALL=en_US.UTF-8
 
+unset ZSH_THEME
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-export ZSH_THEME="robbyrussell"
 source "$ZSH/oh-my-zsh.sh"
+
+PROMPT="%{$fg[yellow]%}%2~%{$reset_color%}"
+PROMPT+=' $(git_prompt_info)'
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}["
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}]: %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ○"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # Autoselect first option on tab-completion
 setopt no_menu_complete
