@@ -22,13 +22,13 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo ncdu ngrok/ngrok/ngrok orbstack vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
 
 echo "=> Installing Cask apps"
-for app in google-chrome iterm2 rectangle visual-studio-code
+for app in google-chrome iterm2 orbstack raycast rectangle visual-studio-code
 do
     brew install --cask $app
 done
