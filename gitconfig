@@ -1,87 +1,90 @@
 [user]
-name = Kamil Ogórek
-email = kamil.ogorek@gmail.com
-
-[color]
-branch = auto
-diff = auto
-status = auto
-interactive = auto
-ui = true
-
-[color "branch"]
-current = yellow reverse
-local = yellow
-remote = green
-
-[color "diff"]
-meta = 11
-frag = magenta bold
-old = red bold
-new = green bold
-commit = yellow bold
-whitespace = red reverse
-
-[color "status"]
-added = yellow
-changed = green
-untracked = cyan
-
-[push]
-default = simple
-autoSetupRemote = true
-followTags = true
-
-[alias]
-co = checkout
-git = !exec git
+  name = Kamil Ogórek
+  email = kamil.ogorek@gmail.com
 
 [core]
-editor = vim
-autocrlf = input
-pager = diff-so-fancy | less --tabs=4 -RFX
-excludesfile = ~/.gitignore
+  editor = vim
+  autocrlf = input
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  excludesfile = ~/.gitignore
 
 [help]
-autocorrect = immediate
+  autocorrect = immediate
 
 [status]
-showUntrackedFiles = all
+  showuntrackedfiles = all
 
 [credential]
-helper = osxkeychain
-
-[diff]
-noprefix = true
-algorithm = histogram
-colorMoved = default
-
-[color "diff-highlight"]
-oldNormal = red bold
-oldHighlight = red bold 52
-newNormal = green bold
-newHighlight = green bold 22
-
-[branch]
-sort = -committerdate
-
-[pull]
-rebase = false
+  helper = osxkeychain
 
 [init]
-defaultBranch = master
+  defaultbranch = master
 
 [submodule]
-recurse = true
+  recurse = true
 
 [rerere]
-enabled = true
+  enabled = true
+
+[push]
+  default = simple
+  autosetupremote = true
+  followtags = true
+
+[pull]
+  rebase = false
+
+[merge]
+  conflictstyle = zdiff3
+
+[rebase]
+  autosquash = true
+
+[fetch]
+  prune = true
+
+[branch]
+  sort = -committerdate
 
 [column]
-ui = auto
-[merge]
-conflictStyle = zdiff3
-[rebase]
-autosquash = true
-[fetch]
-prune = true
+  ui = auto
+
+[diff]
+  noprefix = true
+  algorithm = histogram
+  colormoved = default
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = 11
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  commit = yellow bold
+  whitespace = red reverse
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[color "diff-highlight"]
+  oldnormal = red bold
+  oldhighlight = red bold 52
+  newnormal = green bold
+  newhighlight = green bold 22
+
+[alias]
+  co = checkout
+  git = !exec git
