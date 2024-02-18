@@ -43,7 +43,7 @@ pager = diff-so-fancy | less --tabs=4 -RFX
 excludesfile = ~/.gitignore
 
 [help]
-autocorrect = 5
+autocorrect = immediate
 
 [status]
 showUntrackedFiles = all
@@ -53,6 +53,8 @@ helper = osxkeychain
 
 [diff]
 noprefix = true
+algorithm = histogram
+colorMoved = default
 
 [color "diff-highlight"]
 oldNormal = red bold
@@ -71,3 +73,15 @@ defaultBranch = master
 
 [submodule]
 recurse = true
+
+[rerere]
+enabled = true
+
+[column]
+ui = auto
+[merge]
+conflictStyle = zdiff3
+[rebase]
+autosquash = true
+[fetch]
+prune = true

@@ -101,7 +101,7 @@ autocmd BufReadPost *
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Luxed/ayu-vim'
+Plug 'AhmedAbdulrahman/vim-aylin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
@@ -115,8 +115,8 @@ call plug#end()
 "
 " = = = = = = = = = = = = = = = =
 
-let g:ayucolor="mirage"
-colorscheme ayu
+set background=dark
+colorscheme aylin
 
 """ Ack/The Silver Searcher
 

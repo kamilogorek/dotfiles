@@ -19,18 +19,14 @@ setopt auto_menu
 # Color matched prefix on tab-complete
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==36=36}:${(s.:.)LS_COLORS}")'
 
-
 # brew - The missing package manager for macOS (or Linux) - https://github.com/Homebrew/brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# mise - Dev tools, env vars, task runner
+eval "$(mise activate zsh)"
+
 # atuin - Magical shell history - https://github.com/atuinsh/atuin
 eval "$(atuin init zsh --disable-up-arrow)"
-
-# Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-source "$HOME/dotfiles/nvm-autoload"
 
 # z - jump around - https://github.com/rupa/z
 source `brew --prefix`/etc/profile.d/z.sh
@@ -40,6 +36,9 @@ source `brew --prefix`/etc/profile.d/z.sh
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Bun completions
+[ -s "/Users/kamilogorek/.bun/_bun" ] && source "/Users/kamilogorek/.bun/_bun"
 
 # Local dotfiles
 source $HOME/dotfiles/aliases
