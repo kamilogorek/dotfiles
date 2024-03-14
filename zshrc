@@ -22,9 +22,6 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 # brew - The missing package manager for macOS (or Linux) - https://github.com/Homebrew/brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# mise - Dev tools, env vars, task runner
-eval "$(mise activate zsh)"
-
 # atuin - Magical shell history - https://github.com/atuinsh/atuin
 eval "$(atuin init zsh --disable-up-arrow)"
 

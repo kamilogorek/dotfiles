@@ -22,7 +22,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo mise ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
@@ -48,7 +48,7 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 vim +PlugInstall +qall
 
 echo "=> Installing Python openai library for howto script"
-pip3 install --upgrade openai
+pip3 install --upgrade --break-system-packages openai==0.28
 
 echo "Changing iTerm default profile"
 defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -integer 1
