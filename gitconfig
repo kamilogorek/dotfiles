@@ -34,11 +34,9 @@
 [pull]
   rebase = false
 
-[merge]
-  conflictstyle = zdiff3
-
 [rebase]
   autosquash = true
+  updaterefs = true
 
 [fetch]
   prune = true
@@ -52,7 +50,6 @@
 [diff]
   noprefix = true
   algorithm = histogram
-  colormoved = default
 
 [color]
   branch = auto

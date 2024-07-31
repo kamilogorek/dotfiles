@@ -1,8 +1,14 @@
 # Postgres
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+# n
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
 # Deno
 export PATH="$HOME/.deno/bin:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+# Go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"

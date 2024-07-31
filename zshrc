@@ -42,4 +42,6 @@ source $HOME/dotfiles/aliases
 source $HOME/dotfiles/functions
 source $HOME/dotfiles/paths
 
+source $HOME/aws-supabase.sh
+
 export NEXT_TELEMETRY_DISABLED=1

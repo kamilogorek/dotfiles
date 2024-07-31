@@ -102,6 +102,7 @@ autocmd BufReadPost *
 call plug#begin('~/.vim/plugged')
 
 Plug 'AhmedAbdulrahman/vim-aylin'
+Plug 'nordtheme/vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
@@ -115,8 +116,8 @@ call plug#end()
 "
 " = = = = = = = = = = = = = = = =
 
-set background=dark
-colorscheme aylin
+" set background=dark
+colorscheme nord
 
 """ Ack/The Silver Searcher
 
