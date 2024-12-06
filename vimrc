@@ -107,6 +107,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'elixir-editors/vim-elixir'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 

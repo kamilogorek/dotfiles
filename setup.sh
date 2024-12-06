@@ -2,6 +2,8 @@
 
 # Don't write .DS_Store files
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+# Disable emoji sugestions
+defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist emoji_enhancements -dict-add Enabled -bool NO
 
 echo "=> Please install XCode from App Store, and then press ENTER"
 open /System/Applications/App\ Store.app
@@ -22,19 +24,20 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy exa gh git fd ffmpeg fzf httpie jq kondo n ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq kondo n ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
 
 echo "=> Installing Cask apps"
-for app in google-chrome iterm2 orbstack rectangle visual-studio-code
+for app in google-chrome iterm2 karabiner-elements orbstack rectangle visual-studio-code
 do
     brew install --cask $app
 done
 
 echo "=> Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 
 echo "=> Symlinking dotfiles"
 for file in gitconfig gitignore vimrc zshrc
@@ -43,12 +46,16 @@ do
     ln -s $HOME/dotfiles/$file $HOME/.$file
 done
 
+echo "=> Symlinking configs"
+for dir in karabiner
+do
+    rm $HOME/.config/$dir 2> /dev/null
+    ln -s $HOME/dotfiles/$dir $HOME/.config/$dir
+done
+
 echo "=> Installing vim-plug and vim plugins"
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-
-echo "=> Installing Python openai library for howto script"
-pip3 install --upgrade --break-system-packages openai==0.28
 
 echo "Changing iTerm default profile"
 defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -integer 1

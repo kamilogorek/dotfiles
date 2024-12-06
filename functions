@@ -41,3 +41,12 @@ function clone {
 function cht {
   curl cheat.sh/$1
 }
+
+function gap {
+  local BRANCH=$(git branch --show-current)
+  if [[ "$BRANCH" = "master" || "$BRANCH" == "main" || "$BRANCH" == "develop" ]] then
+    echo "Cannot force push to $BRANCH branch!"
+  else
+    git add -A && ga && git push origin $BRANCH -f
+  fi
+}

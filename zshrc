@@ -3,6 +3,7 @@ export LC_ALL=en_US.UTF-8
 unset ZSH_THEME
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source "$ZSH/oh-my-zsh.sh"
 
 PROMPT="%{$fg[yellow]%}%2~%{$reset_color%}"
