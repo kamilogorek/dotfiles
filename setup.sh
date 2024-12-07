@@ -47,10 +47,11 @@ do
 done
 
 echo "=> Symlinking configs"
+mkdir -p $home/.config
 for dir in karabiner
 do
     rm $HOME/.config/$dir 2> /dev/null
-    ln -s $HOME/dotfiles/$dir $HOME/.config/$dir
+    ln -s $HOME/dotfiles/$dir $HOME/.config
 done
 
 echo "=> Installing vim-plug and vim plugins"
