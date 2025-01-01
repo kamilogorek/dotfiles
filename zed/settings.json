@@ -1,0 +1,42 @@
+{
+  // Visual
+  "theme": "Catppuccin Frappé",
+  "ui_font_family": "JetBrains Mono NL",
+  "ui_font_size": 14,
+  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_size": 14,
+
+  // Behavior
+  "tab_size": 2,
+
+  // UI
+  "features": {
+    "inline_completion_provider": "none",
+    "copilot": false
+  },
+  "assistant": {
+    "version": "2",
+    "enabled": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+
+  // Misc
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}

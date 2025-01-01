@@ -13,6 +13,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}]: %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ○"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+export EDITOR="zed"
+
 # Autoselect first option on tab-completion
 setopt no_menu_complete
 # Show list of matches on second tab-complete

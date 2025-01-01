@@ -24,13 +24,13 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq kondo n ncdu ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq kondo n ncdu neovim ngrok/ngrok/ngrok vim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
 
 echo "=> Installing Cask apps"
-for app in google-chrome iterm2 karabiner-elements orbstack rectangle visual-studio-code
+for app in ghostty google-chrome karabiner-elements orbstack rectangle zed
 do
     brew install --cask $app
 done
@@ -48,7 +48,7 @@ done
 
 echo "=> Symlinking configs"
 mkdir -p $home/.config
-for dir in karabiner
+for dir in ghostty karabiner nvim zed
 do
     rm $HOME/.config/$dir 2> /dev/null
     ln -s $HOME/dotfiles/$dir $HOME/.config
@@ -57,10 +57,6 @@ done
 echo "=> Installing vim-plug and vim plugins"
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-
-echo "Changing iTerm default profile"
-defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -integer 1
-defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/kamilogorek/dotfiles"
 
 echo "=> Supressing shell welcome banner with .hushlogin" | tee $HOME/.hushlogin
 

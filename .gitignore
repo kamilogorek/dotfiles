@@ -1,1 +1,4 @@
 karabiner/automatic_backups
+zed/.tmp*
+zed/embeddings/
+zed/prompts/
