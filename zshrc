@@ -47,4 +47,7 @@ source $HOME/dotfiles/paths
 
 source $HOME/aws-supabase.sh
 
+# Enable shell history in `iex`
+export ERL_OPTIONS="-kernel shell_history enabled"
+
 export NEXT_TELEMETRY_DISABLED=1

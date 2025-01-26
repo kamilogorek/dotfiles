@@ -48,7 +48,7 @@ done
 
 echo "=> Symlinking configs"
 mkdir -p $home/.config
-for dir in ghostty karabiner nvim zed
+for dir in atuin ghostty karabiner nvim zed
 do
     rm $HOME/.config/$dir 2> /dev/null
     ln -s $HOME/dotfiles/$dir $HOME/.config

@@ -5,11 +5,23 @@
   "ui_font_size": 14,
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 14,
-
-  // Behavior
-  "tab_size": 2,
+  "show_whitespaces": "boundary",
 
   // UI
+  "scrollbar": {
+    "git_diff": false,
+    "cursors": false
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "toolbar": {
+    // "breadcrumbs": false,
+    // "quick_actions": false
+  },
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
   "features": {
     "inline_completion_provider": "none",
     "copilot": false
@@ -18,21 +30,70 @@
     "version": "2",
     "enabled": false
   },
-  "collaboration_panel": {
+  "terminal": {
     "button": false
   },
-  "chat_panel": {
+  "collaboration_panel": {
     "button": false
   },
   "notification_panel": {
     "button": false
   },
-  "project_panel": {
-    "button": false
-  },
   "outline_panel": {
     "dock": "right"
   },
+
+  // Behavior
+  "tab_size": 2,
+  "hover_popover_delay": 0,
+
+  // Language-specific
+  // "lsp": {
+  //   "deno": {
+  //     "settings": {
+  //       "deno": {
+  //         "enable": true
+  //       }
+  //     }
+  //   }
+  // },
+  // "languages": {
+  //   "TypeScript": {
+  //     "language_servers": [
+  //       "deno",
+  //       "!typescript-language-server",
+  //       "!vtsls",
+  //       "!eslint"
+  //     ],
+  //     "formatter": "language_server"
+  //   },
+  //   "TSX": {
+  //     "language_servers": [
+  //       "deno",
+  //       "!typescript-language-server",
+  //       "!vtsls",
+  //       "!eslint"
+  //     ],
+  //     "formatter": "language_server"
+  //   }
+  // },
+
+  // Screenshot mode - uncomment
+  // "gutter": {
+  //   "code_actions": false,
+  //   "folds": false,
+  //   "line_numbers": false,
+  //   "runnables": false
+  // },
+  // "buffer_font_size": 24,
+  // "show_whitespaces": "none",
+  // "current_line_highlight": "none",
+  // "git": {
+  //   "git_gutter": "hide"
+  // },
+  // "indent_guides": {
+  //   "enabled": false
+  // },
 
   // Misc
   "telemetry": {

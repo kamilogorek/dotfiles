@@ -2,3 +2,4 @@ karabiner/automatic_backups
 zed/.tmp*
 zed/embeddings/
 zed/prompts/
+nvim/lazy-lock.json

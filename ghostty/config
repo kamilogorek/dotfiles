@@ -1,3 +1,20 @@
+# Visual
 theme = catppuccin-frappe
-font-family = "JetBrains Mono NL"
+font-family = JetBrains Mono NL
 font-size = 14
+cursor-style = block
+
+# UI
+window-width = 1024
+window-height = 1024
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+
+# Behavior
+quit-after-last-window-closed = true
+shell-integration = zsh
+shell-integration-features = no-cursor
+
+# Misc
+auto-update = check
+
