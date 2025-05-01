@@ -1,5 +1,11 @@
 [
   {
+    "bindings": {
+      "cmd-,": "project_panel::ToggleFocus",
+      "cmd-l": "project_panel::CollapseAllEntries"
+    }
+  },
+  {
     "context": "Pane",
     "bindings": {
       "cmd-1": ["pane::ActivateItem", 0],

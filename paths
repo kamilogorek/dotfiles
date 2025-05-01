@@ -13,3 +13,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Go
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+# Elixir
+export PATH="$HOME/.mix/escripts:$PATH"
