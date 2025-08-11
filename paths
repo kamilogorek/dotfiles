@@ -1,8 +1,7 @@
 # Postgres
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-# n
-export N_PREFIX="$HOME/.n"
-export PATH="$N_PREFIX/bin:$PATH"
+# Node
+export PATH="$HOME/.npm-global/bin:$PATH"
 # Bun
 export PATH="$HOME/.bun/bin:$PATH"
 # Deno

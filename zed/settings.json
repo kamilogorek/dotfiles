@@ -28,17 +28,17 @@
     "auto_fold_dirs": false
   },
   "features": {
-    "edit_prediction_provider": "none",
-    "copilot": false
+    "edit_prediction_provider": "none"
   },
-  "assistant": {
+  "agent": {
     "enabled": true,
-    "version": "2",
-    "enable_experimental_live_diffs": true,
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "cloude-sonnet-4"
     }
+  },
+  "chat_panel": {
+    "button": "never"
   },
   "terminal": {
     "button": false
@@ -54,6 +54,7 @@
   },
 
   // Behavior
+  "disable_ai": true,
   "tab_size": 2,
   // "preferred_line_length": 120,
   "soft_wrap": "none",
@@ -62,6 +63,15 @@
   "diagnostics": {
     "inline": {
       "enabled": true
+    }
+  },
+  "code_actions_on_format": {
+    "source.organizeImports.biome": true,
+    "source.fixAll.biome": true
+  },
+  "languages": {
+    "Markdown": {
+      "preferred_line_length": 120
     }
   },
 

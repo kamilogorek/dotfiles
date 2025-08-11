@@ -17,6 +17,10 @@ function kill-on-port {
   sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ${1} | awk '{ print $2 }' | xargs kill -9;
 }
 
+function kill-all {
+  ps aux | grep ${1} | tr -s ' ' | cut -d' ' -f2 | xargs kill -9;
+}
+
 function what-is-listening {
   sudo lsof -iTCP -sTCP:LISTEN -n -P | grep :${1}
 }

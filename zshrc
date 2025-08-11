@@ -6,8 +6,18 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source "$ZSH/oh-my-zsh.sh"
 
-PROMPT="%{$fg[yellow]%}%2~%{$reset_color%}"
-PROMPT+=' $(git_prompt_info)'
+LAST_CMD_TIME=$(date +"(%H:%M:%S)")
+# Capture the time before command executes
+function preexec() {
+  LAST_CMD_TIME=$(date +"(%H:%M:%S)")
+}
+
+# Use the stored time in the prompt
+function precmd() {
+  PROMPT="%{$fg[blue]%}${LAST_CMD_TIME}%{$reset_color%} %{$fg[yellow]%}%2~%{$reset_color%}"
+  PROMPT+=' $(git_prompt_info)'
+}
+
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}]: %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ○"
