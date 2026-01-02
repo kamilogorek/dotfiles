@@ -1,0 +1,4 @@
+shift + cmd - 1 : open -a 'Google Chrome'
+shift + cmd - 2 : open -a 'Ghostty'
+shift + cmd - 3 : open -a 'Zed'
+shift + cmd - 9 : open -a 'Obsidian'

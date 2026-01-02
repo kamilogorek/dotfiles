@@ -24,13 +24,13 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq kondo ncdu neovim ngrok/ngrok/ngrok nvim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq koekeishiya/formulae/skhd kondo ncdu neovim ngrok/ngrok/ngrok nvim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done
 
 echo "=> Installing Cask apps"
-for app in ghostty google-chrome karabiner-elements orbstack rectangle zed
+for app in ghostty google-chrome orbstack rectangle zed
 do
     brew install --cask $app
 done
@@ -48,7 +48,7 @@ done
 
 echo "=> Symlinking configs"
 mkdir -p $home/.config
-for dir in atuin ghostty karabiner nvim zed
+for dir in atuin ghostty nvim skhd zed
 do
     rm $HOME/.config/$dir 2> /dev/null
     ln -s $HOME/dotfiles/$dir $HOME/.config

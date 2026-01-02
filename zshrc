@@ -24,6 +24,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ○"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 export EDITOR="zed"
+export SOPS_EDITOR="zed --wait"
 
 # Autoselect first option on tab-completion
 setopt no_menu_complete
@@ -48,16 +49,25 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Bun completions
-[ -s "/Users/kamilogorek/.bun/_bun" ] && source "/Users/kamilogorek/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Local dotfiles
 source $HOME/dotfiles/aliases
 source $HOME/dotfiles/functions
 source $HOME/dotfiles/paths
+source $HOME/dotfiles/mise.sh
 
+[ -s "$HOME/.profile" ] && source "$HOME/.profile"
 source $HOME/aws-supabase.sh
 
 # Enable shell history in `iex`
 export ERL_OPTIONS="-kernel shell_history enabled"
 
 export NEXT_TELEMETRY_DISABLED=1
+
+
+# bun completions
+[ -s "/Users/kamilogorek/.bun/_bun" ] && source "/Users/kamilogorek/.bun/_bun"
+
+# amp
+export PATH="$HOME/.local/bin:$PATH"
