@@ -1,5 +1,5 @@
 # Visual
-theme = Catppuccin Mocha
+theme = Catppuccin Frappe
 font-family = JetBrains Mono NL
 font-size = 14
 cursor-style = block
@@ -18,3 +18,4 @@ shell-integration-features = no-cursor
 # Misc
 auto-update = check
 auto-update-channel = stable
+keybind = shift+enter=text:\x1b\r

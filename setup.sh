@@ -50,7 +50,7 @@ echo "=> Symlinking configs"
 mkdir -p $home/.config
 for dir in atuin ghostty nvim skhd zed
 do
-    rm $HOME/.config/$dir 2> /dev/null
+    rm -rf $HOME/.config/$dir 2> /dev/null
     ln -s $HOME/dotfiles/$dir $HOME/.config
 done
 
