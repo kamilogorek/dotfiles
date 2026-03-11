@@ -24,7 +24,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl diff-so-fancy eza gh git fd ffmpeg fzf httpie jq koekeishiya/formulae/skhd kondo ncdu neovim ngrok/ngrok/ngrok nvim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl difftastic eza gh git fd ffmpeg fzf httpie jq koekeishiya/formulae/skhd kondo ncdu neovim ngrok/ngrok/ngrok nvim yt-dlp/taps/yt-dlp z zsh
 do
     brew install $package
 done

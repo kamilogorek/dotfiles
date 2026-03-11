@@ -5,7 +5,6 @@
 [core]
   editor = vim
   autocrlf = input
-  pager = diff-so-fancy | less --tabs=4 -RFX
   excludesfile = ~/.gitignore
 
 [help]
@@ -50,9 +49,18 @@
 [column]
   ui = auto
 
+#[diff]
+#  noprefix = true
+#  algorithm = histogram
+
 [diff]
-  noprefix = true
-  algorithm = histogram
+  external = difft
+
+[difftool]
+  prompt = false
+
+[pager]
+  difftool = true
 
 [color]
   branch = auto
@@ -66,24 +74,24 @@
   local = yellow
   remote = green
 
-[color "diff"]
-  meta = 11
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  commit = yellow bold
-  whitespace = red reverse
-
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
 
-[color "diff-highlight"]
-  oldnormal = red bold
-  oldhighlight = red bold 52
-  newnormal = green bold
-  newhighlight = green bold 22
+#[color "diff"]
+#  meta = 11
+#  frag = magenta bold
+#  old = red bold
+#  new = green bold
+#  commit = yellow bold
+#  whitespace = red reverse
+
+#[color "diff-highlight"]
+#  oldnormal = red bold
+#  oldhighlight = red bold 52
+#  newnormal = green bold
+#  newhighlight = green bold 22
 
 [alias]
   co = checkout

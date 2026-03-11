@@ -11,6 +11,9 @@
     "active_line_width": 2,
     "coloring": "indent_aware",
   },
+  "file_finder": {
+    "modal_max_width": "medium",
+  },
 
   // AI
   "disable_ai": true,
