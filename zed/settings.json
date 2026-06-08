@@ -1,5 +1,9 @@
 {
   // Visual
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
   "theme": "Catppuccin Frappé",
   "icon_theme": "Catppuccin Frappé",
   "ui_font_family": "JetBrains Mono NL",
@@ -9,47 +13,117 @@
   "show_whitespaces": "boundary",
   "indent_guides": {
     "active_line_width": 2,
-    "coloring": "indent_aware",
+    "coloring": "indent_aware"
   },
   "file_finder": {
-    "modal_max_width": "medium",
+    "modal_max_width": "medium"
   },
-
-  // AI
   "disable_ai": true,
-
-  // Behavior
   "tab_size": 2,
   // "preferred_line_length": 120,
-  "soft_wrap": "none",
+  // "soft_wrap": "none",
   "hover_popover_delay": 300,
   "expand_excerpt_lines": 5,
   "diagnostics": {
     "inline": {
-      "enabled": true,
-    },
+      "enabled": true
+    }
   },
-  "code_actions_on_format": {
-    "source.addMissingImports": true,
-    "source.fixAll": true,
-    "source.organizeImports.biome": true,
-    "source.removeUnusedImports": true,
-    "source.format": true,
-  },
-  // does this even work?
-  "lsp": {
-    "typescript-language-server": {
-      "initialization_options": {
-        "preferences": {
-          "includeCompletionsForImportStatements": true,
-        },
-      },
-    },
-  },
-
-  // Misc
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
+
+  // Formatting/Linting
+  // "code_lens": "on",
+  "prettier": {
+    "allowed": false
+  },
+  "format_on_save": "on",
+  "lsp": {
+    "vtsls": {
+      "initialization_options": {
+        "vtsls": {
+          "autoUseWorkspaceTsdk": true
+        }
+      }
+    },
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "run": "onType",
+          "unusedDisableDirectives": "deny"
+        }
+      }
+    },
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "run": "onSave"
+        }
+      }
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    },
+    "TypeScript": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    },
+    "JSON": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSONC": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    }
+    // "Markdown": {
+    //   "formatter": [
+    //     {
+    //       "language_server": {
+    //         "name": "oxfmt"
+    //       }
+    //     }
+    //   ]
+    // },
+    // "YAML": {
+    //   "formatter": [
+    //     {
+    //       "language_server": {
+    //         "name": "oxfmt"
+    //       }
+    //     }
+    //   ]
+    // }
+  }
 }

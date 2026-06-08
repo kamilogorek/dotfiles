@@ -96,3 +96,5 @@
 [alias]
   co = checkout
   git = !exec git
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
