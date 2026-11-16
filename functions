@@ -51,6 +51,51 @@ function gap {
   if [[ "$BRANCH" = "master" || "$BRANCH" == "main" || "$BRANCH" == "develop" ]] then
     echo "Cannot force push to $BRANCH branch!"
   else
-    git add -A && ga && git push origin $BRANCH -f
+    git add -A && ga && git push origin $BRANCH -f --no-verify
   fi
 }
+
+function supabase-ssh-instance {
+  aws ec2-instance-connect ssh \
+    --instance-id "$2" \
+    --region "$1" \
+    --connection-type direct \
+    --os-user ubuntu
+}
+
+function debug-wake-timeout {
+  local region="$1"
+  local instance="$2"
+  local time_end="${3:-7d}"
+  local profile="${4:-supa-prod-read-only}"
+  local query_id query_status
+
+  query_id=$(aws logs start-query \
+    --profile "$profile" \
+    --region "$region" \
+    --log-group-name '/supabase/hibernation' \
+    --start-time $(date -v-${time_end} +%s) \
+    --end-time $(date +%s) \
+    --query-string "fields @timestamp, MESSAGE | filter @logStream = \"${instance}/journald\" | filter MESSAGE like /(?i)(failed|fatal|error)/ | sort @timestamp asc" \
+    --query 'queryId' --output text)
+
+  while true; do
+    query_status=$(aws logs get-query-results \
+      --profile "$profile" \
+      --region "$region" \
+      --query-id "$query_id" \
+      --query 'status' --output text)
+    case "$query_status" in
+      Complete) break ;;
+      Failed|Cancelled) echo "Query $query_status" >&2; return 1 ;;
+    esac
+    sleep 1
+  done
+
+  aws logs get-query-results \
+    --profile "$profile" \
+    --region "$region" \
+    --query-id "$query_id" \
+    --output json | jq -r '.results[] | map(select(.field != "@ptr")) | map("\(.field)=\(.value)") | join("\t")'
+}
+

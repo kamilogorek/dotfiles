@@ -60,14 +60,5 @@ source $HOME/dotfiles/mise.sh
 [ -s "$HOME/.profile" ] && source "$HOME/.profile"
 source $HOME/aws-supabase.sh
 
-# Enable shell history in `iex`
-export ERL_OPTIONS="-kernel shell_history enabled"
-
 export NEXT_TELEMETRY_DISABLED=1
-
-
-# bun completions
-[ -s "/Users/kamilogorek/.bun/_bun" ] && source "/Users/kamilogorek/.bun/_bun"
-
-# amp
-export PATH="$HOME/.local/bin:$PATH"
+export SBX_NO_TELEMETRY=1

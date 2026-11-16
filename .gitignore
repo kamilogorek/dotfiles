@@ -1,7 +1,5 @@
 karabiner/automatic_backups
-zed/.tmp*
-zed/embeddings/
-zed/prompts/
-zed/conversations/
-zed/settings_backup.json
+zed/*
+!zed/keymap.json
+!zed/settings.json
 nvim/lazy-lock.json

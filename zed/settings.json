@@ -19,11 +19,13 @@
     "modal_max_width": "medium"
   },
   "disable_ai": true,
+  "close_panel_on_toggle": false,
   "tab_size": 2,
   // "preferred_line_length": 120,
   // "soft_wrap": "none",
   "hover_popover_delay": 300,
   "expand_excerpt_lines": 5,
+  "excerpt_context_lines": 3,
   "diagnostics": {
     "inline": {
       "enabled": true
@@ -33,6 +35,7 @@
     "diagnostics": false,
     "metrics": false
   },
+  "diff_view_style": "unified",
 
   // Formatting/Linting
   // "code_lens": "on",
@@ -106,7 +109,7 @@
           }
         }
       ]
-    }
+    },
     // "Markdown": {
     //   "formatter": [
     //     {
@@ -116,14 +119,14 @@
     //     }
     //   ]
     // },
-    // "YAML": {
-    //   "formatter": [
-    //     {
-    //       "language_server": {
-    //         "name": "oxfmt"
-    //       }
-    //     }
-    //   ]
-    // }
+    "YAML": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    }
   }
 }

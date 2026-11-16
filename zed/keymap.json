@@ -2,6 +2,7 @@
   {
     "bindings": {
       "cmd-,": "project_panel::ToggleFocus",
+      "cmd-.": "terminal_panel::ToggleFocus",
       "cmd-l": "project_panel::CollapseAllEntries"
     }
   },
