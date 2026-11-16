@@ -58,7 +58,7 @@ source $HOME/dotfiles/paths
 source $HOME/dotfiles/mise.sh
 
 [ -s "$HOME/.profile" ] && source "$HOME/.profile"
-source $HOME/aws-supabase.sh
+[ -s "$HOME/aws-supabase.sh" ] && source $HOME/aws-supabase.sh
 
 export NEXT_TELEMETRY_DISABLED=1
 export SBX_NO_TELEMETRY=1

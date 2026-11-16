@@ -1,10 +1,5 @@
 #!/bin/zsh
 
-# Don't write .DS_Store files
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-# Disable emoji sugestions
-defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist emoji_enhancements -dict-add Enabled -bool NO
-
 echo "=> Please install XCode from App Store, and then press ENTER"
 open /System/Applications/App\ Store.app
 read
@@ -24,7 +19,7 @@ brew update
 brew upgrade
 
 echo "=> Installing Homebrew packages"
-for package in ag atuin bat cask coreutils curl difftastic eza gh git fd ffmpeg fzf jq koekeishiya/formulae/skhd kondo ncdu neovim ngrok/ngrok/ngrok nvim yt-dlp/taps/yt-dlp z zsh
+for package in ag atuin bat cask coreutils curl difftastic eza gh git fd ffmpeg fzf jq koekeishiya/formulae/skhd kondo ncdu neovim ngrok/ngrok/ngrok nvim z zsh
 do
     brew install $package
 done
@@ -47,7 +42,7 @@ do
 done
 
 echo "=> Symlinking configs"
-mkdir -p $home/.config
+mkdir -p $home/.config 2> /dev/null || true
 for dir in atuin ghostty nvim skhd zed
 do
     rm -rf $HOME/.config/$dir 2> /dev/null
