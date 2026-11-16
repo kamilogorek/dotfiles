@@ -1,4 +1,6 @@
 karabiner/automatic_backups
+atuin/*
+!atuin/config.toml
 zed/*
 !zed/keymap.json
 !zed/settings.json
